@@ -6,7 +6,7 @@ function Navbar() {
     <>
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-        <img src="src/assets/savingsense_logo.png" alt="Savingsense-Logo"  width="250" className="savingsence-logo"/>
+        <img src="src/assets/Online Shopping Wallet Logo.png" alt="Savingsense-Logo"  width="150" className="savingsence-logo"/>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
