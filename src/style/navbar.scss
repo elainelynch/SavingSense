@@ -261,6 +261,21 @@ ul {
 
 /*start navbar*/
 
+@media only screen and (max-width: 450px) {
+
+  .savingsence-logo{
+    margin-left: 0;
+  }
+
+
+  
+  .navbar-nav{
+    margin-left: 0;
+  }
+
+}
+
+
 @media only screen and (min-width: 768px) {
 
   .savingsence-logo{
