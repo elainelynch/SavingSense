@@ -43,7 +43,7 @@ html {
   --red-light: #f8d7da;
   --red-dark: #842029;
   --green-light: #d1e7dd;
-  --green-dark: #0B7D46 ;  /*original color*/
+  --Pharmaceutical-green: #0B7D46 ;  /*original color*/
   --koji-orange: #F5B445;  /*original color*/
 
   /* fonts  */
@@ -261,12 +261,37 @@ ul {
 
 /*register */
 
+.bg-signup{
+  background-color: var(--primary-100);
+}
+
 
 .bg-register{
   background-color: var(--accent);
-  margin-top: -50;
+  margin-top: -50px;
 }
 
-.btn{
-  color: var(--green-dark);
+.btn-primary{
+  width: 25vw;
+  color: var(--accent);
+  background-color: var(--primary-600);
+  border-color: var(--accent);
+}
+
+.btn-primary:hover{
+  color: var(--accent);
+  background-color: var(--Pharmaceutical-green);
+}
+
+.border-input{
+  border-color: var(--primary-600);
+  border-bottom: var(--accent);
+}
+
+@media only screen and (min-width: 768px) {
+
+  .btn-primary{
+    width: 8vw;
+  }
+
 }
