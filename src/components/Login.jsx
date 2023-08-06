@@ -27,7 +27,10 @@ function Login() {
               <p className="mt-3 fw-semi bold"><Link to="/">Forgot Password?</Link></p>
             </div>
             <div className="d-flex justify-content-center mt-3">
-            <button className="rounded-pill btn-primary">Login</button>
+              <button className="rounded-pill btn-primary">Login</button>
+            </div>
+            <div className="d-flex justify-content-center mt-3">
+              <p className="mt-3 fw-semi bold">Already have an account? <Link to="/">Sign-up</Link></p>
             </div>
           </form>
         </div>
