@@ -259,7 +259,14 @@ ul {
   margin-top: 1rem;
 }
 
+/*register */
 
-.register-1{
-  margin-top: 40px;
+
+.bg-register{
+  background-color: var(--accent);
+  margin-top: -50;
+}
+
+.btn{
+  color: var(--green-dark);
 }

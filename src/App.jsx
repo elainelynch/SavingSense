@@ -1,13 +1,24 @@
-import Navbar from "./components/Navbar"
-import Main from "./components/Main"
-import Footer from "./components/Footer"
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Register from "./components/Register";
+import Footer from "./components/Footer";
+
+
 
 function App() {
  
   return (
     <>
       <Navbar />
-      <Main />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={
+           <>
+            <Register />
+           </>
+          }/>
+        </Routes>
+      </BrowserRouter>
       <Footer />
 
     </>
