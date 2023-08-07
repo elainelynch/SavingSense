@@ -1,5 +1,6 @@
 import React from "react";
 import "../style/navbar.scss";
+import savingsense from "/savingsense.png";
 
 
 
@@ -8,7 +9,7 @@ function Navbar() {
     <>
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-        <img src="src/photo/savingsense.png" alt="Savingsense logo"  width="250" className="savingsense-logo"/>
+        <img src={savingsense} alt="Savingsense logo"  width="250" className="savingsense-logo"/>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
