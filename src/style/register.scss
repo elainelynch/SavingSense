@@ -271,12 +271,32 @@ ul {
 
 }
 
-.btn-primary{
+.bg-gerwin{
   width: 25vw;
   color: var(--accent);
   background-color: var(--primary-600);
   border-color: var(--accent);
 }
+
+.bg-gerwin:hover{
+  color: var(--accent);
+  background-color: var(--primary-400);
+  border-color: var(--accent);
+}
+
+.bg-gerwin-modal{
+  background-color: var(--primary-600);
+  color: var(--accent);
+}
+
+.bg-gerwin-modal:hover{
+  background-color: var(--primary-400);
+}
+
+.modal-save{
+  color: var(--accent);
+}
+
 
 
 .border-input{
@@ -284,13 +304,14 @@ ul {
   border-bottom: var(--accent);
 }
 
-.bg-gerwin{
-  background-color: var(--primary-600);
-}
 
 @media only screen and (min-width: 768px) {
 
-  .btn-primary{
+  .bg-gerwin{
+    width: 8vw;
+  }
+
+  .bg-gerwin-g{
     width: 8vw;
   }
 
