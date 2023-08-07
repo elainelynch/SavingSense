@@ -1,6 +1,8 @@
 import { useEffect } from "react"
 import { Link } from "react-router-dom"
 import "../style/login.scss"
+import savingsense from "/savingsense.png";
+
 
 
 function Login() {
@@ -14,6 +16,7 @@ function Login() {
       <div className="signup register d-flex justify-content-center align-items-center vh-100 bg-signup">
         <div className="form_container">
           <form className="conteiner bg-register p-5 rounded">
+            <img src={savingsense} alt="Savingsense logo"  width="300" className="savingsense-logo mb-5 rounded"/>
             <div className="mb-2">
               <h3 className="start-end mb-3">Login</h3>
               <label htmlFor="email"></label>

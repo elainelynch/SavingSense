@@ -262,7 +262,7 @@ ul {
 /*register */
 
 .bg-signup{
-  background-color: var(--primary-100);
+  background-color: var(--primary-500);
 }
 
 
@@ -278,14 +278,14 @@ ul {
   border-color: var(--accent);
 }
 
-.btn-primary:hover{
-  color: var(--accent);
-  background-color: var(--Pharmaceutical-green);
-}
 
 .border-input{
   border-color: var(--primary-600);
   border-bottom: var(--accent);
+}
+
+.bg-gerwin{
+  background-color: var(--primary-600);
 }
 
 @media only screen and (min-width: 768px) {
