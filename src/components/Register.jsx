@@ -1,9 +1,15 @@
-import { Link } from "react-router-dom"
-import "../style/register.scss"
+import { Link } from "react-router-dom";
+import "../style/register.scss";
+import { useEffect } from "react";
 
 
 function Register() {
+
+  useEffect(() => {
+    document.title = 'Register';
+  }, [])
   return(
+
     <>
      <div className="signup register d-flex justify-content-center align-items-center vh-100 bg-signup">
       <div className="form_container">
