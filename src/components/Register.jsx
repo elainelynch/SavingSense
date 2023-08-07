@@ -71,7 +71,7 @@ function Register() {
                 </div>
               </div>
             </div>
-            <p className="mt-3 fw-semibold">Already have an account? <Link to="/">Sign-in</Link></p>
+            <p className="mt-3 fw-semibold text-center">Already have an account? <Link to="/">Sign-in</Link></p>
           </form>
         </div>
       </div>
