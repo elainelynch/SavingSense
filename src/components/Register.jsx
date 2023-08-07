@@ -27,19 +27,19 @@ function Register() {
             <img src={savingsense} alt="Savingsense logo" width="300" className="savingsense-logo mb-5 rounded" />
             <h3 className="text-center mb-3 text-lowercase"><span className="text-uppercase">C</span>reate an <span className="text-uppercase">A</span>ccount</h3>
             <div className="mb-2">
-              <label htmlFor="fname">Full Name</label>
+              <label htmlFor="fname"></label>
               <input type="text" id="fname" placeholder="Full Name" className="form-control rounded-pill border-input shadow-sm p-2 text-center" required />
             </div>
             <div className="mb-2">
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email"></label>
               <input type="email" id="email" placeholder=" Email" className="form-control rounded-pill shadow-sm p-2 text-center" required />
             </div>
             <div className="mb-2">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password"></label>
               <input type="password" id="password" placeholder="Password" className="form-control rounded-pill shadow-sm p-2 text-center" required />
             </div>
             <div className="mb-2">
-              <label htmlFor="rpassword">Confirm Password</label>
+              <label htmlFor="rpassword"></label>
               <input type="password" id="rpassword" placeholder="Confirm Password" className="form-control rounded-pill shadow-sm p-2 text-center" required />
             </div>
             <div className="d-flex justify-content-center mt-3">
