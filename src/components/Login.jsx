@@ -27,7 +27,7 @@ function Login() {
               <input type="password" placeholder="Password" className="form-control rounded-pill shadow-sm p-2 text-center" required/>
             </div>
             <div className="d-flex justify-content-center mt-3">
-              <p className="mt-3 fw-semi bold"><Link to="/">Forgot Password?</Link></p>
+              <p className="mt-3 fw-semi bold"><Link to="/forgotpassword">Forgot Password?</Link></p>
             </div>
             <div className="d-flex justify-content-center mt-3">
               <button className="rounded-pill btn-primary">Login</button>
