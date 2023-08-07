@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Register from "./components/Register";
 import Footer from "./components/Footer";
+import ExpenseCategory from "./components/ExpenseCategory";
 
 
 
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={
            <>
             <Register />
+            <ExpenseCategory />
            </>
           }/>
         </Routes>
