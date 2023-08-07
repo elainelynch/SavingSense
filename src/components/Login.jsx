@@ -13,12 +13,12 @@ function Login() {
 
   return(
     <>
-      <div className="signup register d-flex justify-content-center align-items-center vh-100 bg-signup">
+      <div className="login d-flex justify-content-center align-items-center vh-100">
         <div className="form_container">
-          <form className="conteiner bg-register p-5 rounded">
+          <form className="container bg-register p-5 rounded">
             <img src={savingsense} alt="Savingsense logo"  width="300" className="savingsense-logo mb-5 rounded"/>
             <div className="mb-2">
-              <h3 className="start-end mb-3">Login</h3>
+              <h3 className="start-end mb-3 text-center">Login</h3>
               <label htmlFor="email"></label>
               <input type="text" placeholder="Email" className="form-control rounded-pill border-input shadow-sm p-2 text-center" required/>
             </div>
