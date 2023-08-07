@@ -13,9 +13,9 @@ function Login() {
 
   return(
     <>
-      <div className="login d-flex justify-content-center align-items-center vh-100">
+      <div className="login d-flex justify-content-center align-items-center vh-100 bg-login">
         <div className="form_container">
-          <form className="container bg-register p-5 rounded">
+          <form className="container bg-log-in p-5 rounded">
             <img src={savingsense} alt="Savingsense logo"  width="300" className="savingsense-logo mb-5 rounded"/>
             <div className="mb-2">
               <h3 className="start-end mb-3 text-center">Login</h3>
@@ -27,7 +27,7 @@ function Login() {
               <input type="password" placeholder="Password" className="form-control rounded-pill shadow-sm p-2 text-center" required/>
             </div>
             <div className="d-flex justify-content-center mt-3">
-              <p className="mt-3 fw-semi bold"><Link to="/">Forgot Password?</Link></p>
+              <p className="mt-3 fw-semi bold"><Link to="/forgotpassword">Forgot Password?</Link></p>
             </div>
             <div className="d-flex justify-content-center mt-3">
               <button className="rounded-pill bg-gerwin">Login</button>
