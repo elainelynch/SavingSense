@@ -30,7 +30,7 @@ function Login() {
               <button className="rounded-pill btn-primary">Login</button>
             </div>
             <div className="d-flex justify-content-center mt-3">
-              <p className="mt-3 fw-semi bold">Don't have an account yet? <Link to="/">Sign-up</Link></p>
+              <p className="mt-3 fw-semi bold">Don't have an account yet? <Link to="/register">Sign-up</Link></p>
             </div>
           </form>
         </div>
