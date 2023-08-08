@@ -35,9 +35,9 @@ function ForgotPassword() {
                                     <div className="modal-body">We have sent a link on your email to reset your password and you should receive it shortly.</div>
                                     <div className="modal-footer">
                                         <Link to="/">
-                                            <div className="bg-gerwin-modal rounded-pill text-center">
+                                            <div className="btn-primary-modal rounded-pill text-center">
                                                 <button type="submit" className="btn rounded-pill">
-                                                   <span className="modal-save">Close</span>
+                                                   <span className="modal-close">Close</span>
                                                </button>
                                             </div>
                                         </Link>
