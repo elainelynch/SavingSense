@@ -2,6 +2,8 @@ import { useEffect } from "react"
 import { Link } from "react-router-dom";
 import "../style/forgotpassword.scss"
 import savingsense from "/savingsense.png";
+import {IoAlertCircle} from 'react-icons/io5';
+
 
 function ForgotPassword() {
     useEffect(() => {
@@ -15,7 +17,10 @@ function ForgotPassword() {
                     <form className="container bg-fp p-5 rounded">
                        <div className="savingsense-logo1">
                            <img src={savingsense} alt="Savingsense logo"  width="300" className="savingsense-logo mb-5 rounded"/>
-                        </div>
+                       </div>
+                       <div className="react-icon mb-3">
+                           <IoAlertCircle size={70} />
+                       </div>
                        <div className="mb-2 bg-fpw">
                           <h3 className="start-end mb-3 text-center">Forgot Password</h3>
                           <p className="start-end mb-2 text-center">Enter your email and we'll send you a link to reset your password.</p>
