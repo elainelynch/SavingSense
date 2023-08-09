@@ -13,7 +13,7 @@ function ForgotPassword() {
     return (
         <>
             <div className="forgotpassword d-flex justify-content-center align-items-center vh-100 bg-forgotpassword">
-                <div className="form_container">
+                <div className="form_container bg-fotgotpassword">
                     <form className="container bg-fp p-5 rounded">
                        <div className="savingsense-logo1">
                            <img src={savingsense} alt="Savingsense logo"  width="300" className="savingsense-logo mb-5 rounded"/>
