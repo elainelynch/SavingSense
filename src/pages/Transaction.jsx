@@ -107,7 +107,7 @@ function Transaction() {
               </label>
             </div>
           </div>
-          <div className="">
+          <div className="catergory">
             <div class="card-transactions text-center">
               <div class="card-body1 fs-4">
                 <BiSolidCategory size={30} />

@@ -13,16 +13,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
-          <Route
-            path="/dashboard"
-            element={
-              <>
-                {/* <Expense />
-              <Income /> */}
-                <Dashboard />
-              </>
-            }
-          />
+
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/register" element={<Register />} />
           <Route path="/transaction" element={<Transaction />} />
         </Routes>
