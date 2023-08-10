@@ -291,7 +291,7 @@ ul {
 
 .child1{
   width: 25%;
-  min-height: 550px;
+  min-height: 100vh;
   background-color: var(--primary-600);
   float: left;
 
@@ -301,7 +301,7 @@ ul {
 
  .child2{
   width: 75%;
-  min-height: 550px;
+  height: 100vh;
   background-color: var(--accent);
   float: right;
  }
@@ -343,7 +343,7 @@ ul {
   .side-bar{
     margin-top: 10px;
     margin-left: -27px;
-    font-size: 1.2rem;
+    font-size: .5rem;
     color: var(--white)
    }
 

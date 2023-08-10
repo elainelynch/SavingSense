@@ -30,6 +30,9 @@ function Dashboard() {
            <img src={gacempow} alt="Empow car" width="90" className="text-center rounded"/>
           </div>
           <h6 className="text-center Profile-name">Profile-name</h6>
+          <div className="">
+            <hr />
+          </div>
           <ul className="row ul-margin mt-5">
             <Link className="text-dec mt-3"><h2 className="side-bar">Income Category</h2></Link>
             <Link className="text-dec mt-3"><h2 className="side-bar">Expense Category</h2></Link>
