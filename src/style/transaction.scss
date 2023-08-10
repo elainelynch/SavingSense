@@ -260,102 +260,44 @@ ul {
 
 //transaction
 
-// .bg-transaction {
-//   width: 100vh;
-//   margin: 50rem;
-//   display: flex;
-//   align-items: center;
-// }
-
-// .bg-ntransaction {
-//   margin-top: 18px;
-//   margin-bottom: 18px;
-//   padding: 10px 10px;
-//   border: 2px solid black;
-//   border-radius: 5px;
-//   box-shadow: 0 0 10px #00344c;
-// }
-
-// .bg-transact {
-//   display: flex;
-//   justify-content: center;
-// }
-
-// .bg-trans {
-//   padding-right: 80px;
-//   padding-left: 80px;
-//   margin-top: 8px;
-//   border: 2px solid black;
-// }
-
-// .bg-trans1 {
-//   padding-right: 80px;
-//   padding-left: 80px;
-//   margin-top: 8px;
-//   border: 2px solid black;
-// }
-
-// .card-text1 {
-//   padding-right: 240px;
-//   margin-top: 16px;
-// }
-
-// .card-text2 {
-//   padding-right: 260px;
-//   margin-top: 16px;
-// }
-
-// .card-text3 {
-//   padding-right: 260px;
-//   margin-top: 16px;
-// }
-
-// .card-body {
-//   padding: 50px;
-// }
-
-// @media only screen and (min-width: 768px) {
-//   .dashboard-logo {
-//     margin-left: 25%;
-//   }
-
-//   .navbar-nav {
-//     margin-left: 43%;
-//   }
-// }
-
 .bg-transaction {
   background-color: var(--accent);
   height: 100vh;
 }
 
+.transaction {
+  padding: 10px;
+  margin-bottom: 0%;
+}
+
 .icon-transaction {
-  background-color: #e4b453;
+  background-color: var(--accent);
 }
 
 .card-transaction {
-  background-color: #e4b453;
+  background-color: var(--koji-orange);
 }
 .form-check {
-  background-color: #fee4ae;
+  color: var(--accent);
+  background-color: var(--primary-600);
   margin-right: 25px;
   margin-left: 25px;
   padding: 10px;
-  border: 2px solid black;
+  border: 2px solid var(--primary-600);
   border-radius: 50px;
   cursor: pointer;
 }
 
 .form-check:hover {
-  background-color: #e4b453;
+  background-color: var(--primary-500);
 }
 
 .form-check-input {
-  border: 2px solid black;
+  border: 2px solid #e4b453;
 }
 
 .card-transactions {
-  background-color: #caa04a;
+  background-color: var(--accent);
 }
 
 .card-body1 {
@@ -374,4 +316,18 @@ ul {
   padding-top: 20px;
   padding-bottom: 20px;
   padding-right: 280px;
+}
+
+.card-footers {
+  background-color: var(--koji-orange);
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.bg-trans {
+  background-color: var(--primary-600);
+  color: var(--accent);
+  border-radius: 15px;
+  padding: 10px;
+  margin: 25px;
 }
