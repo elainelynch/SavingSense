@@ -7,6 +7,7 @@ import Transaction from "./pages/Transaction";
 import Dashboard from "./components/Dashboard";
 import Category from "./pages/Category";
 
+
 function App() {
   return (
     <>
