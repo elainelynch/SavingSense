@@ -39,27 +39,27 @@ function Dashboard() {
         </div>
         <div className="child2">
           <h2 className="text-center mt-3 p-2">Dashboard</h2>
-          <div class="row col-12 d-flex justify-content-center">
-            <div class="col-sm-3 mt-3 mb-sm-0 ms-3">
-              <div class="card">
-                <div class="card-body  income">
-                  <h5 class="card-title text-center">Income</h5>
+          <div className="row col-12 d-flex justify-content-center">
+            <div className="col-sm-3 mt-3 mb-sm-0 ms-3">
+              <div className="card">
+                <div className="card-body  income">
+                  <h5 className="card-title text-center">Income</h5>
                   <h5 className="text-center">$0</h5>
                 </div>
               </div>
             </div>
-            <div class="col-sm-3 mt-3 ms-3">
-              <div class="card">
-                <div class="card-body expense">
-                  <h5 class="card-title text-center ">Expense</h5>
+            <div className="col-sm-3 mt-3 ms-3">
+              <div className="card">
+                <div className="card-body expense">
+                  <h5 className="card-title text-center ">Expense</h5>
                   <h5 className="text-center">$0</h5>
                 </div>
               </div>
             </div>
-            <div class="col-sm-3 mt-3 ms-3">
-              <div class="card">
-                <div class="card-body balance">
-                  <h5 class="card-title text-center">Balance</h5>
+            <div className="col-sm-3 mt-3 ms-3">
+              <div className="card">
+                <div className="card-body balance">
+                  <h5 className="card-title text-center">Balance</h5>
                   <h5 className="text-center">$0</h5>
                 </div>
               </div>
