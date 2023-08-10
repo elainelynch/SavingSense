@@ -310,6 +310,28 @@ ul {
   text-decoration: none;
  }
 
+ .profile-pict{
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+ }
+
+ .Profile-name{
+  color: var(--white);
+ }
+
+ .income{
+  background-color: var(--Pharmaceutical-green);
+ }
+
+ .expense{
+  background-color: var(--koji-orange);
+ }
+
+ .balance{
+  background-color: var(--primary-500);
+ }
+
 
  @media only screen and (max-width: 450px) {
 
