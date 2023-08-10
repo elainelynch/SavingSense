@@ -25,7 +25,6 @@ function App() {
           />
           <Route path="/register" element={<Register />} />
           <Route path="/transaction" element={<Transaction />} />
-          <Route path="/category" element={<Category />} />
         </Routes>
       </BrowserRouter>
       <Footer />
