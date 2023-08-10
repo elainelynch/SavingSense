@@ -259,35 +259,74 @@ ul {
   margin-top: 1rem;
 }
 
-/*start navbar*/
 
+// start Dashboard
+
+.bg-savingsense{
+  background-color: var(--koji-orange);
+}
+
+.sign-in-dashboard{
+  font-size: 30px;
+
+}
 
 .btn-search-color{
   background: var(--primary-600);
 }
 
-@media only screen and (max-width: 450px) {
+.wrapper{
+  display: flex;
+  flex-wrap: row wrap;
+  text-align: center;
+}
 
+.side-bar1{
+  margin-left: -30px;
+}
 
-  .search-btn{
-    margin-left:35px ;
-  }
-  
+.main-container{
+  width: 100%;
+}
 
+.child1{
+  width: 25%;
+  min-height: 550px;
+  background-color: var(--primary-600);
+  float: left;
 
 }
 
 
-@media only screen and (min-width: 768px) {
 
-  .savingsense-logo{
-    margin-left: 10%;
+ .child2{
+  width: 75%;
+  min-height: 550px;
+  background-color: var(--accent);
+  float: right;
+ }
+
+ .text-dec{
+  text-decoration: none;
+ }
+
+
+ @media only screen and (max-width: 450px) {
+
+
+  .ul-margin{
+    margin-left: -20px;
   }
+
+  .side-bar{
+    margin-top: 10px;
+    margin-left: -27px;
+    font-size: 1.2rem;
+    color: var(--white)
+   }
 
 
   
-  .navbar-nav{
-    margin-left: 80%;
-  }
+
 
 }

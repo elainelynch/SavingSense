@@ -31,7 +31,7 @@ function Login() {
               <p className="mt-3 fw-semi bold"><Link to="/forgotpassword">Forgot Password?</Link></p>
             </div>
             <div className="d-flex justify-content-center mt-3">
-              <button className="rounded-pill bg-gerwin">Login</button>
+             <Link to="/dashboard"><button className="rounded-pill bg-gerwin">Login</button></Link>
             </div>
             <div className="d-flex justify-content-center mt-3">
               <p className="mt-3 fw-semi bold">Don't have an account yet? <Link to="/register">Sign-up</Link></p>
