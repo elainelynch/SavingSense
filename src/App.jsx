@@ -5,8 +5,6 @@ import Login from "./pages/Login";
 import Footer from "./components/Footer";
 import Transaction from "./pages/Transaction";
 import Dashboard from "./components/Dashboard";
-import Category from "./pages/Category";
-
 
 function App() {
   return (
