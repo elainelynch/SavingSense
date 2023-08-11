@@ -262,6 +262,10 @@ ul {
 
 // start Dashboard
 
+.text-center{
+  font-family: 'lora';
+}
+
 .bg-savingsense{
   background-color: var(--koji-orange);
 }
@@ -269,6 +273,10 @@ ul {
 .sign-in-dashboard{
   font-size: 30px;
 
+}
+
+.dashboard-fweight{
+  font-weight: 900;
 }
 
 .btn-search-color{
@@ -302,8 +310,8 @@ ul {
  .child2{
   width: 75%;
   height: 100vh;
-  background-color: var(--accent);
   float: right;
+  background-color: var(--grey-100);
  }
 
  .text-dec{
@@ -314,26 +322,101 @@ ul {
   margin-top: 15px;
   display: flex;
   justify-content: center;
+
  }
+
 
  .Profile-name{
   color: var(--white);
+  font-size: .6em;
  }
 
  .income{
-  background-color: var(--Pharmaceutical-green);
+  border: solid 2px var(--Pharmaceutical-green);
  }
 
  .expense{
-  background-color: var(--koji-orange);
+  border: solid 2px var(--Pharmaceutical-green);
+  margin-left: 2%;
+
  }
 
  .balance{
-  background-color: var(--primary-500);
+  border: solid 2px var(--Pharmaceutical-green);
+  margin-left: 2%;
+
+ }
+
+ .i-e-b{
+  color: var(--Pharmaceutical-green);
  }
 
 
- @media only screen and (max-width: 450px) {
+
+ .new-trans{
+  display: flex;
+  justify-content: center;
+  background-color: var(--primary-500);
+  
+ }
+
+ .card-title-1{
+  font-size: 1rem;
+ }
+
+ .main-transaction{
+  display: flex;
+  justify-content: center;
+  margin-top: 25%;
+ }
+
+ .sign-out-color{
+  color: var(--primary-600);
+ }
+
+ .sign-out-color:hover{
+  color: var(--primary-300);
+ }
+
+ .income-text{
+  color: var(--white);
+  margin-left: 20px;
+  
+ }
+
+ .income-text:hover{
+  color: var(--primary-200)
+ }
+
+ .list-new-t{
+  display: flex;
+  justify-content: center;
+ }
+
+ .card-list{
+  background-color: var(--primary-600);
+ }
+
+ .card-list:hover{
+  background-color: var(--primary-400);
+ }
+
+ .list-text{
+  color: var(--accent)
+ }
+
+ .card-new-trans{
+  background-color: var(--primary-600);
+ }
+
+ .card-new-trans:hover{
+  background-color: var(--primary-400);
+ }
+
+ 
+
+
+@media only screen and (max-width: 450px) {
 
 
   .ul-margin{
@@ -343,9 +426,118 @@ ul {
   .side-bar{
     margin-top: 10px;
     margin-left: -27px;
-    font-size: .5rem;
+    font-size: 1em;
     color: var(--white)
+  }
+
+  .card-title-2{
+    width: 2rem;
+  }
+
+  .list{
+    font-size: .6em;
    }
+  
+   .size-em{
+    font-size: 1em;
+   }
+
+   .profile-pict1{
+    display: flex;
+    justify-content: center;
+   }
+
+   .bg-profile-name-image{
+    background-color: var(--grey-200);
+   }
+
+   .profile-picture1{
+    border: 4px solid var(--primary-500);
+    border-radius: 50%;
+   }
+
+   .income1{
+    width: 10%;
+   }
+
+   .child1{
+    display: none;
+   }
+
+  .child2{
+    width: 100%;
+  }
+
+
+  .profile-pict{
+    display: contents;
+  }
+  
+
+
+}
+
+@media only screen and (min-width: 450px) {
+
+  .profile-pict1{
+    display: none;
+   }
+
+   .Profile-name1{
+    display: none;
+   }
+
+
+
+}
+
+
+
+
+
+
+
+@media only screen and (min-width: 780px) {
+
+
+  .child1{
+    width: 17%;
+    min-height: 100vh;
+    background-color: var(--primary-600);
+    float: left;
+  
+  }
+  
+  
+  
+  
+   .child2{
+    width: 83%;
+    height: 100vh;
+    float: right;
+   }
+
+   .profile-pict1{
+    display: none;
+   }
+
+   .Profile-name1{
+    display: none;
+   }
+
+   .profile-picture{
+    border: 4px solid var(--accent);
+    border-radius: 50%;
+   }
+
+   .Profile-name{
+    font-size: 1em;
+   }
+
+   .ul-margin{
+    margin-left: -40%;
+  }
+
 
 
 }

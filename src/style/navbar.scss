@@ -266,19 +266,48 @@ ul {
   background: var(--primary-600);
 }
 
+.nav-home-text{
+ color: var(--primary-600)
+}
+
+.nav-home-text:hover{
+  color: var(--primary-300)
+ }
+
+
 @media only screen and (max-width: 450px) {
+
+  .nav-dash{
+    margin-left: 10%;
+  }
 
 
   .search-btn{
     margin-left:35px ;
   }
+
+  .nav-home-text{
+    display: none;
+  }
+
+  .home-text1{
+    color: var(--primary-600);
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .home-text1:hover{
+    color: var(--primary-300);
+  }
+
+
   
 
 
 }
 
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 800px) {
 
   .savingsense-logo{
     margin-left: 10%;
@@ -289,5 +318,11 @@ ul {
   .navbar-nav{
     margin-left: 80%;
   }
+
+  .Nav-hide{
+    display: none;
+  }
+
+
 
 }
