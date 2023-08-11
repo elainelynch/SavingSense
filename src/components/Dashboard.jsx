@@ -3,6 +3,7 @@ import "../style/dashboard.scss"
 import Navbar from "./Navbar.jsx";
 import { Link } from "react-router-dom";
 import savingsense1 from "/savingsense1.png";
+import savingsense from "/savingsense.png";
 import gacempow from "/gacempow.jpg";
 import { GiExpense } from "react-icons/gi";
 import { BsCalendarDate } from "react-icons/bs";
@@ -10,6 +11,7 @@ import { BiNotepad } from "react-icons/bi";
 import { TbMoneybag } from "react-icons/tb";
 import { FcList } from "react-icons/fc";
 import { IoIosAddCircleOutline } from "react-icons/io";
+import { AiTwotoneHome } from "react-icons/ai";
 
 
 
@@ -27,7 +29,7 @@ function Dashboard() {
   
   return(
     <>
-      <div className="bg-savingsense">
+      <div className="bg-savingsense sticky-top-fixed">
         <Navbar/>
       </div>
       <div>
@@ -37,7 +39,7 @@ function Dashboard() {
           <div className="profile-pict">
            <img src={gacempow} alt="Empow car" width="100" height="100" className="text-center rounded-circle profile-picture"/>
           </div>
-          <p className="text-center Profile-name">Profile-name</p>
+          <p className="text-center Profile-name">Profile Name</p>
           <div className="bg-warning">
             <hr />
           </div>
@@ -81,12 +83,125 @@ function Dashboard() {
             </div>
             <div className="container list-new-t row mt-5">
               <div className="card-list col-3 col-md-2 mx-1 rounded">
-                <h5 className="list text-center mt-2 rounded"><FcList size={20}/> <span className="list-text">List</span></h5>
-              </div>
-              <div className="card-new-trans col-6 col-md-3 mx-1 rounded">
-                <h5 className="list text-center mt-2"><IoIosAddCircleOutline size={20} /><span className="list-text">  New Transaction</span></h5>
+                <h5 className="list text-center mt-2 rounded"><FcList size={20}/> <span className="list-text fw-bold fs-5">List</span></h5>
               </div>
             </div>
+            <div className="text-start mt-3">
+              <div className="ms-5">
+                <div className="card col-10 col-md-4 col-sm-4 ms-2">
+                  <p className="ms-1">Date:</p>
+                  <p className="ms-1">Category:</p>
+                  <p className="ms-1">Amount:</p>
+                  <p className="ms-1">Note:</p>
+                </div>
+              </div>
+            </div>
+            <div className="container list-new-t row mt-5">
+              <div className="card-new-trans col-6 col-md-3 mx-1 rounded">
+                <h5 className="list text-center mt-2" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><IoIosAddCircleOutline size={20} /><span className="list-text fw-bold fs-5">  Transaction</span></h5>
+              </div>
+            </div>
+            <div className="collapse multi-collapse ms-2" id="multiCollapseExample1">
+              <div className="bg-center">
+                <div className=" transaction-form col-11 col-md-10  bg-form mt-5">
+                  <div className="col-11 col-md-11 col-sm-8 mt-4">
+                    <form  className="w-100" width="100px">
+                      <fieldset>
+                        <div className="input-group mb-3" width="100px">
+                          <span className="input-group-text" id="inputGroup-sizing-default"><BsCalendarDate size={20}/> <span className="l1">Date</span></span>
+                          <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
+                        </div>
+                        <div className="input-group mb-3">
+                          <label className="input-group-text" htmlFor="inputGroupSelect01"><span className="incometext"><GiExpense size={20}/> <span className="l1">Expense Category</span></span></label>
+                          <select className="form-select" id="inputGroupSelect01">
+                            <option  defaultValue>Choose...</option>
+                            <option defaultValue="1">Food and Drink</option>
+                            <option defaultValue="2">Water Bill</option>
+                            <option defaultValue="3">Electric Bill</option>
+                            <option defaultValue="3">Rent</option>
+                            <option defaultValue="3">Transportation</option>
+                            <option defaultValue="3">Study</option>
+                            <option defaultValue="3">Beauty</option>
+                            <option defaultValue="3">Health</option>
+                            <option defaultValue="3">Clothing</option>
+
+
+                          </select>
+                        </div>
+                        <div className="input-group mb-3">
+                          <span className="input-group-text" id="inputGroup-sizing-default"><span className="incometext"><GiExpense size={20}/> <span className="l1">Amount</span></span></span>
+                          <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
+                        </div>
+                        <div className="mb-3">
+                          <span htmlFor="exampleFormControlTextarea1" className="form-label"><span className="incometext"><BiNotepad size={20}/> <span className="l1">Note</span></span></span>
+                          <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>    
+                        <div className="col-12 save mb-4">
+                          <button type="submit" className="col-3 save1 new-trans text-center rounded mt-4"><span className="list-text fw-bold fs-5 p-1">Save</span></button>
+                        </div>
+                      </fieldset>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+
+            {/* <form>
+              <fieldset>
+                <div className="input-group mb-3">
+                  <span className="input-group-text" id="inputGroup-sizing-default"><BsCalendarDate size={20}/> <span className="l1">Date</span></span>
+                  <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
+                </div>
+                <div className="input-group mb-3">
+                  <label className="input-group-text" htmlFor="inputGroupSelect01"><span className="incometext"><GiExpense size={20}/> <span className="l1">Expense Category</span></span></label>
+                  <select className="form-select" id="inputGroupSelect01">
+                    <option defaultValue>Choose...</option>
+                    <option defaultValue="1">One</option>
+                    <option defaultValue="2">Two</option>
+                    <option defaultValue="3">Three</option>
+                  </select>
+                </div>
+                <div className="input-group mb-3">
+                  <span className="input-group-text" id="inputGroup-sizing-default"><span className="incometext"><GiExpense size={20}/> <span className="l1">Amount</span></span></span>
+                  <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
+                </div>
+                <div className="mb-3">
+                  <span htmlFor="exampleFormControlTextarea1" className="form-label"><span className="incometext"><BiNotepad size={20}/> <span className="l1">Note</span></span></span>
+                  <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>    
+                  <div className="mb-3">
+                    <label htmlFor="Select" className="form-label">Disabled select menu</label>
+                    <select id="Select" className="form-select">
+                      <option>Disabled select</option>
+                    </select>
+                  </div>
+                  <div className="mb-3">
+                    <div className="form-check">
+                      <input className="form-check-input" type="checkbox" id="FieldsetCheck"/>
+                      <label className="form-check-label" htmlFor="FieldsetCheck">
+                        Can't check this
+                      </label>
+                    </div>
+                  </div>
+                <button type="submit" className="btn btn-primary">Submit</button>
+              </fieldset>
+            </form> */}
+
+            {/* <p className=" col-6 col-md-3 mx-1 rounded row mt-5">
+              <a className="btn list" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><IoIosAddCircleOutline size={20} /><span className="list-text fw-bold">  New Transaction</span></a>
+            </p>
+            <div className="">
+              <div className="card-new-trans1 col-12 col-md-3 mx-1 rounded">
+                <div className="collapse multi-collapse" id="multiCollapseExample1">
+                  <Link className="text-dec mt-2"><p className="sidebar"><span className="incometext"><AiTwotoneHome size={20}/> <span className="l1">Home</span></span></p></Link>
+                  <Link className="text-dec mt-2"><p className="sidebar"><span className="incometext"><TbMoneybag size={20}/> <span className="l1">Income Category</span></span></p></Link>
+                  <Link className="text-dec mt-2"><p className="sidebar"><span className="incometext"><GiExpense size={20}/> <span className="l1">Expense Category</span></span></p></Link>
+                  <Link className="text-dec mt-2"><p className="sidebar"><span className="incometext"><BsCalendarDate size={20}/> <span className="l1">Date</span></span></p></Link>
+                  <Link className="text-dec mt-2"><p className="sidebar"><span className="incometext"><BiNotepad size={20}/> <span className="l1">Note</span></span></p></Link>
+                </div>
+              </div>
+            </div> */}
           </div>
         </div>
       </div>
