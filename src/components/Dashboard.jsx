@@ -69,9 +69,9 @@ function Dashboard() {
             </div>
             <div className="col-10 col-md-3 col-sm-3  mt-3  expense rounded shadow-sm p-3">
               <div className="">
-                <h5 className="card-title text-center size-em"><span className="i-e-b fw-bold">Expense</span></h5>
+                <h5 className="card-title text-center size-em"><span className="expense1 fw-bold">Expense</span></h5>
                 <hr />
-                <h5 className="text-center fw-bold">$0</h5>
+                <h5 className="text-center fw-bold expense1">$0</h5>
               </div>
             </div>
             <div className="col-10 col-md-3 col-sm-3  mt-3 balance rounded shadow-sm p-3">
@@ -96,55 +96,109 @@ function Dashboard() {
                 </div>
               </div>
             </div>
-            <div className="container list-new-t row mt-5">
-              <div className="card-new-trans col-6 col-md-3 mx-1 rounded">
-                <h5 className="list text-center mt-2" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><IoIosAddCircleOutline size={20} /><span className="list-text fw-bold fs-5">  Transaction</span></h5>
-              </div>
-            </div>
-            <div className="collapse multi-collapse ms-2" id="multiCollapseExample1">
-              <div className="bg-center">
-                <div className=" transaction-form col-11 col-md-10  bg-form mt-5">
-                  <div className="col-11 col-md-11 col-sm-8 mt-4">
-                    <form  className="w-100" width="100px">
-                      <fieldset>
-                        <div className="input-group mb-3" width="100px">
-                          <span className="input-group-text" id="inputGroup-sizing-default"><BsCalendarDate size={20}/> <span className="l1">Date</span></span>
-                          <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
+            <div className="container-fluid">
+              <div className="row">
+                <div className="col-12 col-md-12">
+                  <div className="container list-new-t row mt-5">
+                    <div className="card-new-trans col-10 col-md-3 mx-1 rounded">
+                      <h5 className="list text-center mt-2" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><IoIosAddCircleOutline size={20} /><span className="list-text fw-bold fs-5">  Income</span></h5>
+                    </div>
+                  </div>
+                  <div className="collapse multi-collapse ms-2" id="multiCollapseExample1">
+                    <div className="bg-center">
+                      <div className=" transaction-form col-11 col-md-10  bg-form mt-5">
+                        <div className="col-11 col-md-11 col-sm-8 mt-4">
+                          <form  className="w-100" width="100px">
+                            <fieldset>
+                              <div className="input-group mb-3" width="100px">
+                                <span className="input-group-text" id="inputGroup-sizing-default"><BsCalendarDate size={20}/> <span className="l1">Date</span></span>
+                                <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
+                              </div>
+                              <div className="input-group mb-3">
+                                <label className="input-group-text" htmlFor="inputGroupSelect01"><span className="incometext"><GiExpense size={20}/> <span className="l1">Income Category</span></span></label>
+                                <select className="form-select" id="inputGroupSelect01">
+                                  <option defaultValue="1">Work</option>
+                                  <option defaultValue="2">Business</option>
+                                  <option defaultValue="3">Allowance</option>
+                                  <option defaultValue="3">Saving</option>
+                                  <option defaultValue="3">Transportation</option>
+                                  <option defaultValue="3">Other</option>
+
+                                </select>
+                              </div>
+                              <div className="input-group mb-3">
+                                <span className="input-group-text" id="inputGroup-sizing-default"><span className="incometext"><GiExpense size={20}/> <span className="l1">Amount</span></span></span>
+                                <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
+                              </div>
+                              <div className="mb-3">
+                                <span htmlFor="exampleFormControlTextarea1" className="form-label"><span className="incometext"><BiNotepad size={20}/> <span className="l1">Note</span></span></span>
+                                <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                              </div>    
+                              <div className="col-12 save mb-4">
+                                <button type="submit" className="col-3 save1 new-trans text-center rounded mt-4"><span className="list-text fw-bold fs-5 p-1">Save</span></button>
+                              </div>
+                            </fieldset>
+                          </form>
                         </div>
-                        <div className="input-group mb-3">
-                          <label className="input-group-text" htmlFor="inputGroupSelect01"><span className="incometext"><GiExpense size={20}/> <span className="l1">Expense Category</span></span></label>
-                          <select className="form-select" id="inputGroupSelect01">
-                            <option  defaultValue>Choose...</option>
-                            <option defaultValue="1">Food and Drink</option>
-                            <option defaultValue="2">Water Bill</option>
-                            <option defaultValue="3">Electric Bill</option>
-                            <option defaultValue="3">Rent</option>
-                            <option defaultValue="3">Transportation</option>
-                            <option defaultValue="3">Study</option>
-                            <option defaultValue="3">Beauty</option>
-                            <option defaultValue="3">Health</option>
-                            <option defaultValue="3">Clothing</option>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+                <div className="col-12 col-md-12">
+                  <div className="container list-new-t row mt-5">
+                    <div className="card-new-trans col-10 col-md-3 mx-1 rounded">
+                      <h5 className="list text-center mt-2" data-bs-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2"><IoIosAddCircleOutline size={20} /><span className="list-text fw-bold fs-5">Expense</span></h5>
+                    </div>
+                  </div>
+                  <div className=" collapse multi-collapse ms-2" id="multiCollapseExample2">
+                    <div className="bg-center">
+                      <div className=" transaction-form col-11 col-md-10  bg-form mt-5">
+                        <div className="col-11 col-md-11 col-sm-8 mt-4" >
+                          <form  className="w-100" width="100px">
+                            <fieldset>
+                              <div className="input-group mb-3" width="100px">
+                                <span className="input-group-text" id="inputGroup-sizing-default"><BsCalendarDate size={20}/> <span className="l1">Date</span></span>
+                                <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
+                              </div>
+                              <div className="input-group mb-3">
+                                <label className="input-group-text" htmlFor="inputGroupSelect01"><span className="incometext"><GiExpense size={20}/> <span className="l1">Expense Category</span></span></label>
+                                <select className="form-select" id="inputGroupSelect01">
+                                  <option  defaultValue>Choose...</option>
+                                  <option defaultValue="1">Food and Drink</option>
+                                  <option defaultValue="2">Water Bill</option>
+                                  <option defaultValue="3">Electric Bill</option>
+                                  <option defaultValue="3">Rent</option>
+                                  <option defaultValue="3">Transportation</option>
+                                  <option defaultValue="3">Study</option>
+                                  <option defaultValue="3">Beauty</option>
+                                  <option defaultValue="3">Health</option>
+                                  <option defaultValue="3">Clothing</option>
 
 
-                          </select>
+                                </select>
+                              </div>
+                              <div className="input-group mb-3">
+                                <span className="input-group-text" id="inputGroup-sizing-default"><span className="incometext"><GiExpense size={20}/> <span className="l1">Amount</span></span></span>
+                                <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
+                              </div>
+                              <div className="mb-3">
+                                <span htmlFor="exampleFormControlTextarea1" className="form-label"><span className="incometext"><BiNotepad size={20}/> <span className="l1">Note</span></span></span>
+                                <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                              </div>    
+                              <div className="col-12 save mb-4">
+                                <button type="submit" className="col-3 save1 new-trans text-center rounded mt-4"><span className="list-text fw-bold fs-5 p-1">Save</span></button>
+                              </div>
+                            </fieldset>
+                          </form>
                         </div>
-                        <div className="input-group mb-3">
-                          <span className="input-group-text" id="inputGroup-sizing-default"><span className="incometext"><GiExpense size={20}/> <span className="l1">Amount</span></span></span>
-                          <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
-                        </div>
-                        <div className="mb-3">
-                          <span htmlFor="exampleFormControlTextarea1" className="form-label"><span className="incometext"><BiNotepad size={20}/> <span className="l1">Note</span></span></span>
-                          <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        </div>    
-                        <div className="col-12 save mb-4">
-                          <button type="submit" className="col-3 save1 new-trans text-center rounded mt-4"><span className="list-text fw-bold fs-5 p-1">Save</span></button>
-                        </div>
-                      </fieldset>
-                    </form>
+                      </div>
+                    </div>
+                    
                   </div>
                 </div>
               </div>
-              
+
             </div>
 
             {/* <form>

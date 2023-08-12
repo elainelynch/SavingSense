@@ -340,9 +340,13 @@ ul {
  }
 
  .expense{
-  border: solid 2px var(--Pharmaceutical-green);
+  border: solid 2px var(--red-dark);
   margin-left: 2%;
 
+ }
+
+ .expense1{
+  color: red;
  }
 
  .balance{
