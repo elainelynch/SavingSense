@@ -16,7 +16,9 @@ function ForgotPassword() {
             <div className="login d-flex justify-content-center align-items-center vh-100 bg-login">
                 <div className="form_container">
                 <form className="container bg-log-in p-5 rounded">
-                    <img src={savingsense} alt="Savingsense logo"  width="300" className="savingsense-logo  mb-5 rounded"/>
+                    <div className="logo-center">
+                      <img src={savingsense} alt="Savingsense logo"  width="300" className="savingsense-logo  mb-5 rounded"/>
+                    </div>
                     <div className="react-icon mb-3">
                     <IoAlertCircle size={70} />
                     </div>
@@ -28,7 +30,7 @@ function ForgotPassword() {
                     </div>
                     <div className="d-flex justify-content-center mt-3">
                         <Link to="/">
-                        <button type="submit" className="rounded-pill bg-wanda" data-bs-toggle="modal" data-bs-target="#exampleModal">Submit</button>
+                        <button type="submit" className="rounded-pill bg-wanda" data-bs-toggle="modal" data-bs-target="#exampleModal"><span className="submit">Submit</span></button>
                         </Link>
                     </div>
                     <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
