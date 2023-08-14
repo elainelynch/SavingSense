@@ -26,9 +26,9 @@ function Navbar() {
               <li className="nav-item nav-dash mey-2">
                 <Link className="nav-link active nav-home" aria-current="page" to="/dashboard"><span className="nav-home-text fw-bold">Home</span></Link>
                 <div className="Nav-hide">
-                  <Link className="text-dec mt-2"><p className="side-bar"><span className="income-text"><AiTwotoneHome size={20}/> <span className="home-text1">Home</span></span></p></Link>
-                  <Link className="text-dec mt-2"><p className="side-bar"><span className="income-text"><TbMoneybag size={20}/> <span className="home-text1">Income Category</span></span></p></Link>
-                  <Link className="text-dec mt-2"><p className="side-bar"><span className="income-text"><GiExpense size={20}/> <span className="home-text1">Expense Category</span></span></p></Link>
+                  <Link className="text-dec mt-2" to="/dashboard"><p className="side-bar"><span className="income-text"><AiTwotoneHome size={20}/> <span className="home-text1">Home</span></span></p></Link>
+                  {/* <Link className="text-dec mt-2"><p className="side-bar"><span className="income-text"><TbMoneybag size={20}/> <span className="home-text1">Income Category</span></span></p></Link>
+                  <Link className="text-dec mt-2"><p className="side-bar"><span className="income-text"><GiExpense size={20}/> <span className="home-text1">Expense Category</span></span></p></Link> */}
                   <Link className="text-dec mt-2"><p className="side-bar"><span className="income-text"><BsCalendarDate size={20}/> <span className="home-text1">Date</span></span></p></Link>
                   <Link className="text-dec mt-2"><p className="side-bar"><span className="income-text"><BiNotepad size={20}/> <span className="home-text1">Note</span></span></p></Link>
                 </div>

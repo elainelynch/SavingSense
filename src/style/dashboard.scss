@@ -299,6 +299,7 @@ ul {
 
 .main-container{
   width: 100%;
+  margin-top: 105px;
 }
 
 .child1{
@@ -336,21 +337,22 @@ ul {
  }
 
  .income{
-  border: solid 2px var(--Pharmaceutical-green);
+  border: solid 3px var(--Pharmaceutical-green);
  }
 
+
  .expense{
-  border: solid 2px var(--red-dark);
+  border: solid 3px #ff0000;
   margin-left: 2%;
 
  }
 
- .expense1{
+.expense1{
   color: red;
  }
 
  .balance{
-  border: solid 2px var(--Pharmaceutical-green);
+  border: solid 3px var(--Pharmaceutical-green);
   margin-left: 2%;
 
  }
@@ -409,12 +411,20 @@ ul {
   background-color: var(--primary-400);
  }
 
+
+ .card-list-s{
+  background-color: var(--primary-600);
+ }
+
+
  .list-text{
   color: var(--accent);
   font-size: 14px;
  }
 
  .card-new-trans{
+  display: flex;
+  justify-content: center;
   background-color: var(--primary-600);
  }
 
@@ -461,6 +471,25 @@ ul {
  }
 
 
+ .color-income{
+  font-weight: 600;
+  color:var(--Pharmaceutical-green)
+ }
+
+ .color-expense{
+  color: #ff0000;
+ }
+
+ .color-expense-T{
+  font-weight: 500;
+  color: #ff0000;
+ }
+
+ .note-text-color{
+  color: var(--accent);
+  font-weight: 500;
+ }
+
 
  
 
@@ -468,6 +497,10 @@ ul {
 
 
 @media only screen and (max-width: 450px) {
+
+  .main-container{
+    margin-left: 2px;
+  }
 
 
   .ul-margin{
@@ -550,6 +583,10 @@ ul {
 
 
 @media only screen and (min-width: 780px) {
+
+  .main-container{
+    margin-top: 65px;
+  }
 
 
   .child1{

@@ -261,10 +261,6 @@ ul {
 
 /*register */
 
-.savingsense-logo{
-  display: flex;
-  
-}
 
 .bg-signup{
   background-color: var(--primary-500);
@@ -310,7 +306,7 @@ ul {
 }
 
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 800px) {
 
   .bg-gerwin{
     width: 8vw;
@@ -318,6 +314,10 @@ ul {
 
   .bg-gerwin-g{
     width: 8vw;
+  }
+
+  .logo-center{
+    margin-left: -12%;
   }
 
 }

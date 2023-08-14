@@ -25,7 +25,9 @@ function Register() {
       <div className="signup register d-flex justify-content-center align-items-center vh-100 bg-signup">
         <div className="form_container">
           <form className="container bg-register p-5 rounded">
-            <img src={savingsense} alt="Savingsense logo" width="300" className="savingsense-logo mb-5 rounded" />
+            <div className="logo-center">
+              <img src={savingsense} alt="Savingsense logo" width="300" className="savingsense-logo mb-5" />
+            </div>
             <h3 className="text-center mb-3 text-lowercase"><span className="text-uppercase">C</span>reate an <span className="text-uppercase">A</span>ccount</h3>
             <div className="mb-2">
               <label htmlFor="fname"></label>
@@ -72,7 +74,7 @@ function Register() {
                 </div>
               </div>
             </div>
-            <p className="mt-3 fw-semibold text-center">Already have an account? <Link to="/">Sign-in</Link></p>
+            <p className="mt-3 text-center">Already have an account? <Link to="/">Sign-in</Link></p>
           </form>
         </div>
       </div>
