@@ -18,6 +18,7 @@ import { BiLogOut } from "react-icons/bi";
 import { GrTransaction } from "react-icons/gr";
 import { useFormik } from "formik";
 import { Value } from "sass";
+import * as Yup from "yup";
 
 
 
@@ -33,6 +34,14 @@ function Dashboard() {
       note: '',
     },
 
+    validationSchema: Yup.object({
+      date: Yup.string().required("Date is required"),
+      type: Yup.string().required("Type of Transaction is required"),
+      category: Yup.string().required("Category is required"),
+      amount: Yup.string().required("Amount is required"),
+
+
+    }),
 
     onSubmit: (value) => {
       console.log(value)
@@ -106,22 +115,28 @@ function Dashboard() {
             </div>
           </div>
 
-          <div className="container">
+          <div className="container list-container overflow-auto">
             <div className="row text-center">
               <div className="col-3">
                 <p className="fw-bold">Date</p>
+                <p>00/00/0000</p>
+
               </div>
               <div className="col-3">
                 <p className="fw-bold">Type</p>
+                <p>Income</p>
               </div>
               <div className="col-3">
                 <p className="fw-bold">Category</p>
+                <p>Gifts and Donations</p>
               </div>
               <div className="col-3">
                 <p className="fw-bold">Amount</p>
+                <p>100,000</p>
               </div>
-              <div className="col-3">
-                <p className="fw-bold">Note</p>
+              <div>
+                <p className="fw-bold">Note:</p>
+                <span className="fs-5">rgesrgreghreshrehrthrthjtrhrthhthrthrtregregregregreahesrhetshetheth ergregre reagregregregr ergrgregber regrtgergergerg aergrgregtresgesrgesr awegergregareghearhre</span>
               </div>
 
               
@@ -141,7 +156,7 @@ function Dashboard() {
                     <div className="col-11 col-md-11 col-sm-8 mt-4" >
                     <form onSubmit={formik.handleSubmit} className="w-100" width="100px">
                         <fieldset>
-                          <div className="input-group mb-3" width="100px">
+                          <div className="input-group mt-2" width="100px">
                             <span className="input-group-text" id="date"><BsCalendarDate size={20}/>
                             <span className="l1">Date</span></span>
                             <input type="text" className="form-control"
@@ -150,8 +165,13 @@ function Dashboard() {
                             id="date"
                             value={formik.values.date}
                             onChange={formik.handleChange}/>
+                          
                           </div>
-                          <div className="input-group mb-3">
+                          {
+                              formik.errors.date && <span className="error-text fs-bold">{formik.errors.date}</span>
+
+                            }
+                          <div className="input-group mt-2">
                             <label className="input-group-text" htmlFor="type"><span className="incometext">
                               <GiExpense size={20}/> <span className="l1">Type of Transaction</span></span></label>
                             <select className="form-select"
@@ -162,8 +182,13 @@ function Dashboard() {
                               <option defaultValue="1" className="color-income">Income</option>
                               <option defaultValue="2" className="color-expense-T">Expense</option>
                             </select>
+                            
                           </div>
-                          <div className="input-group mb-3">
+                          {
+                             formik.errors.type && <span className="error-text fs-bold">{formik.errors.type}</span>
+
+                            }
+                          <div className="input-group mt-2">
                             <label className="input-group-text" htmlFor="category"><span className="incometext">
                               <BiCategoryAlt size={20}/> <span className="l1">Category</span></span></label>
                             <select className="form-select"
@@ -198,8 +223,13 @@ function Dashboard() {
                               <option defaultValue="25" className="color-expense">Clothing</option>
                               <option defaultValue="26" className="color-expense">Electronics and Gadgets</option>
                             </select>
+                           
                           </div>
-                          <div className="input-group mb-3">
+                          {
+                             formik.errors.category && <span className="error-text fs-bold">{formik.errors.category}</span>
+
+                            }
+                          <div className="input-group mt-2">
                             <span className="input-group-text" id="amount"><span className="incometext">
                               <GiWallet size={20}/> <span className="l1">Amount</span></span></span>
                             <input type="text" className="form-control" aria-label="Sizing example input"
@@ -207,15 +237,20 @@ function Dashboard() {
                             id="amount"
                             value={formik.values.amount}
                             onChange={formik.handleChange}/>
+                           
                           </div>
-                          <div className="mb-3">
+                          {
+                            formik.errors.amount && <span className="error-text fs-bold">{formik.errors.amount}</span>
+                            }
+                          <div className="mt-2">
                             <span htmlFor="note" className="form-label"><span className="incometext">
                               <BiNotepad size={20}/> <span className="l1 note-text-color">Note</span></span></span>
-                            <textarea className="form-control" rows="3"
+                            <textarea className="form-control" rows="3" placeholder="Optional"
                               id="note"
                               value={formik.values.note}
-                              onChange={formik.handleChange}
-                              ></textarea>
+                              onChange={formik.handleChange}>
+
+                            </textarea>
                           </div>    
                           <div className="col-12 save mb-4">
                             <button type="submit" className="col-3 save1 new-trans text-center rounded mt-4">
