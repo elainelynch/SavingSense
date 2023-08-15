@@ -398,7 +398,12 @@ ul {
   color: var(--primary-200)
  }
 
- .list-new-t{
+ .list-center{
+  display: flex;
+  justify-content: center;
+ }
+
+ .transaction-center{
   display: flex;
   justify-content: center;
  }
@@ -557,6 +562,10 @@ ul {
   .profile-pict{
     display: contents;
   }
+
+  .sign-out-color{
+    visibility: hidden;
+  }
   
 
 
@@ -571,6 +580,10 @@ ul {
    .Profile-name1{
     display: none;
    }
+
+   .sign-out-color{
+    visibility: hidden;
+  }
 
 
 
@@ -625,6 +638,10 @@ ul {
 
    .ul-margin{
     margin-left: -40%;
+  }
+
+  .sign-out-color{
+    visibility: hidden;
   }
 
 
