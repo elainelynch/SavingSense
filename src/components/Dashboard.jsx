@@ -18,15 +18,8 @@ import { BiLogOut } from "react-icons/bi";
 import { GrTransaction } from "react-icons/gr";
 import { useFormik } from "formik";
 import { Value } from "sass";
-<<<<<<< HEAD
 import Income from "./Income";
-=======
 import * as Yup from "yup";
-
-
-
-
->>>>>>> 26243b3e84c153079d22fc6846774cc887565b96
 
 function Dashboard() {
   const formik = useFormik({
@@ -38,18 +31,13 @@ function Dashboard() {
       note: "",
     },
 
-<<<<<<< HEAD
-=======
     validationSchema: Yup.object({
       date: Yup.string().required("Date is required"),
       type: Yup.string().required("Type of Transaction is required"),
       category: Yup.string().required("Category is required"),
       amount: Yup.string().required("Amount is required"),
-
-
     }),
 
->>>>>>> 26243b3e84c153079d22fc6846774cc887565b96
     onSubmit: (value) => {
       console.log(value);
     },
@@ -169,7 +157,6 @@ function Dashboard() {
               <div className="col-3">
                 <p className="fw-bold">Date</p>
                 <p>00/00/0000</p>
-
               </div>
               <div className="col-3">
                 <p className="fw-bold">Type</p>
@@ -185,7 +172,11 @@ function Dashboard() {
               </div>
               <div>
                 <p className="fw-bold">Note:</p>
-                <span className="fs-5">rgesrgreghreshrehrthrthjtrhrthhthrthrtregregregregreahesrhetshetheth ergregre reagregregregr ergrgregber regrtgergergerg aergrgregtresgesrgesr awegergregareghearhre</span>
+                <span className="fs-5">
+                  rgesrgreghreshrehrthrthjtrhrthhthrthrtregregregregreahesrhetshetheth
+                  ergregre reagregregregr ergrgregber regrtgergergerg
+                  aergrgregtresgesrgesr awegergregareghearhre
+                </span>
               </div>
             </div>
           </div>
@@ -220,8 +211,7 @@ function Dashboard() {
                         width="100px"
                       >
                         <fieldset>
-<<<<<<< HEAD
-                          <div className="input-group mb-3" width="100px">
+                          <div className="input-group mt-2" width="100px">
                             <span className="input-group-text" id="date">
                               <BsCalendarDate size={20} />
                               <span className="l1">Date</span>
@@ -236,7 +226,12 @@ function Dashboard() {
                               onChange={formik.handleChange}
                             />
                           </div>
-                          <div className="input-group mb-3">
+                          {formik.errors.date && (
+                            <span className="error-text fs-bold">
+                              {formik.errors.date}
+                            </span>
+                          )}
+                          <div className="input-group mt-2">
                             <label className="input-group-text" htmlFor="type">
                               <span className="incometext">
                                 <GiExpense size={20} />{" "}
@@ -259,38 +254,14 @@ function Dashboard() {
                               >
                                 Expense
                               </option>
-=======
-                          <div className="input-group mt-2" width="100px">
-                            <span className="input-group-text" id="date"><BsCalendarDate size={20}/>
-                            <span className="l1">Date</span></span>
-                            <input type="text" className="form-control"
-                            aria-label="Sizing example input"
-                            aria-describedby="date"
-                            id="date"
-                            value={formik.values.date}
-                            onChange={formik.handleChange}/>
-                          
-                          </div>
-                          {
-                              formik.errors.date && <span className="error-text fs-bold">{formik.errors.date}</span>
-
-                            }
-                          <div className="input-group mt-2">
-                            <label className="input-group-text" htmlFor="type"><span className="incometext">
-                              <GiExpense size={20}/> <span className="l1">Type of Transaction</span></span></label>
-                            <select className="form-select"
-                            id="type"
-                            value={formik.values.type}
-                            onChange={formik.handleChange} >
-                              <option  defaultValue>Type...</option>
-                              <option defaultValue="1" className="color-income">Income</option>
-                              <option defaultValue="2" className="color-expense-T">Expense</option>
->>>>>>> 26243b3e84c153079d22fc6846774cc887565b96
                             </select>
-                            
                           </div>
-<<<<<<< HEAD
-                          <div className="input-group mb-3">
+                          {formik.errors.type && (
+                            <span className="error-text fs-bold">
+                              {formik.errors.type}
+                            </span>
+                          )}
+                          <div className="input-group mt-2">
                             <label
                               className="input-group-text"
                               htmlFor="category"
@@ -448,51 +419,14 @@ function Dashboard() {
                               >
                                 Electronics and Gadgets
                               </option>
-=======
-                          {
-                             formik.errors.type && <span className="error-text fs-bold">{formik.errors.type}</span>
-
-                            }
-                          <div className="input-group mt-2">
-                            <label className="input-group-text" htmlFor="category"><span className="incometext">
-                              <BiCategoryAlt size={20}/> <span className="l1">Category</span></span></label>
-                            <select className="form-select"
-                            id="category"
-                            value={formik.values.category}
-                            onChange={formik.handleChange}>
-                              <option  defaultValue>Choose...</option>
-                              <option defaultValue="1" className="color-income">Salary</option>
-                              <option defaultValue="2" className="color-income">Business</option>
-                              <option defaultValue="3" className="color-income">Allowance</option>
-                              <option defaultValue="4" className="color-income">Pension</option>
-                              <option defaultValue="5" className="color-income">Savings</option>
-                              <option defaultValue="6" className="color-expense">Food and Drink</option>
-                              <option defaultValue="7" className="color-expense">Water Bill</option>
-                              <option defaultValue="8" className="color-expense">Electric Bill</option>
-                              <option defaultValue="9" className="color-expense">Rent</option>
-                              <option defaultValue="10" className="color-expense">Transportation</option>
-                              <option defaultValue="11" className="color-expense">Study</option>
-                              <option defaultValue="12" className="color-expense">Beauty</option>
-                              <option defaultValue="13" className="color-expense">Health</option>
-                              <option defaultValue="14" className="color-expense">Entertainment</option>
-                              <option defaultValue="15" className="color-expense">Debt Payments</option>
-                              <option defaultValue="16" className="color-expense">Personal Care</option>
-                              <option defaultValue="17" className="color-expense">Gifts and Donations</option>
-                              <option defaultValue="18" className="color-expense">Insurance</option>
-                              <option defaultValue="19" className="color-expense">Miscellaneous</option>
-                              <option defaultValue="20" className="color-expense">Utilities</option>
-                              <option defaultValue="21" className="color-expense">Pets</option>
-                              <option defaultValue="22" className="color-expense">Subscriptions</option>
-                              <option defaultValue="23" className="color-expense">Home Improvement</option>
-                              <option defaultValue="24" className="color-expense">Vacation and Travel</option>
-                              <option defaultValue="25" className="color-expense">Clothing</option>
-                              <option defaultValue="26" className="color-expense">Electronics and Gadgets</option>
->>>>>>> 26243b3e84c153079d22fc6846774cc887565b96
                             </select>
-                           
                           </div>
-<<<<<<< HEAD
-                          <div className="input-group mb-3">
+                          {formik.errors.category && (
+                            <span className="error-text fs-bold">
+                              {formik.errors.category}
+                            </span>
+                          )}
+                          <div className="input-group mt-2">
                             <span className="input-group-text" id="amount">
                               <span className="incometext">
                                 <GiWallet size={20} />{" "}
@@ -509,7 +443,12 @@ function Dashboard() {
                               onChange={formik.handleChange}
                             />
                           </div>
-                          <div className="mb-3">
+                          {formik.errors.amount && (
+                            <span className="error-text fs-bold">
+                              {formik.errors.amount}
+                            </span>
+                          )}
+                          <div className="mt-2">
                             <span htmlFor="note" className="form-label">
                               <span className="incometext">
                                 <BiNotepad size={20} />{" "}
@@ -519,40 +458,12 @@ function Dashboard() {
                             <textarea
                               className="form-control"
                               rows="3"
+                              placeholder="Optional"
                               id="note"
                               value={formik.values.note}
                               onChange={formik.handleChange}
                             ></textarea>
                           </div>
-=======
-                          {
-                             formik.errors.category && <span className="error-text fs-bold">{formik.errors.category}</span>
-
-                            }
-                          <div className="input-group mt-2">
-                            <span className="input-group-text" id="amount"><span className="incometext">
-                              <GiWallet size={20}/> <span className="l1">Amount</span></span></span>
-                            <input type="text" className="form-control" aria-label="Sizing example input"
-                            aria-describedby="amount"
-                            id="amount"
-                            value={formik.values.amount}
-                            onChange={formik.handleChange}/>
-                           
-                          </div>
-                          {
-                            formik.errors.amount && <span className="error-text fs-bold">{formik.errors.amount}</span>
-                            }
-                          <div className="mt-2">
-                            <span htmlFor="note" className="form-label"><span className="incometext">
-                              <BiNotepad size={20}/> <span className="l1 note-text-color">Note</span></span></span>
-                            <textarea className="form-control" rows="3" placeholder="Optional"
-                              id="note"
-                              value={formik.values.note}
-                              onChange={formik.handleChange}>
-
-                            </textarea>
-                          </div>    
->>>>>>> 26243b3e84c153079d22fc6846774cc887565b96
                           <div className="col-12 save mb-4">
                             <button
                               type="submit"
