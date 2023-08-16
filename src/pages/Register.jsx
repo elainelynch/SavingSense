@@ -5,14 +5,17 @@ import { useEffect } from "react";
 import savingsense from "/savingsense.png";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
+import { Toast } from "bootstrap";
 
 function Register() {
   const formik = useFormik({
     initialValues: {
-      fname: "",
+      fullname: "",
       email: "",
       password: "",
-      rpassword: "",
+      confirmPassword: "",
     },
 
     validationSchema: Yup.object({
@@ -20,7 +23,7 @@ function Register() {
         .email("Invalid email address")
         .required("Email address is required"),
       password: Yup.string().required("Password is required"),
-      rpassword: Yup.string().oneOf(
+      confirmPassword: Yup.string().oneOf(
         [Yup.ref("password"), ""],
         "Password must match"
       ),
@@ -28,6 +31,7 @@ function Register() {
 
     onSubmit: (values) => {
       console.log(values);
+      new Toast(document.getElementById('livetoast')).show() 
     },
   });
 
@@ -39,9 +43,6 @@ function Register() {
     event.preventDefault();
     // Process form data here
 
-    // Show the modal
-    const myModal = new Register.Modal(document.getElementById("exampleModal"));
-    myModal.show();
   };
 
   return (
@@ -57,116 +58,120 @@ function Register() {
                 src={savingsense}
                 alt="Savingsense logo"
                 width="300"
-                className="savingsense-logo mb-5"
+                className="savingsense-logo mb-4"
               />
             </div>
-            <h3 className="text-center mb-3 text-lowercase">
+            <h3 className="text-center mb-4 mt-2 text-lowercase">
               <span className="text-uppercase">C</span>reate an{" "}
               <span className="text-uppercase">A</span>ccount
             </h3>
-            <div className="mb-2">
-              <label htmlFor="fname"></label>
+
+
+            <div className="mb-2 mt-3 fw-semibold">
+              <label htmlFor="fullname">Full Name</label>
               <input
                 type="text"
-                id="fname"
-                placeholder="Full Name"
-                className="form-control rounded-pill border-input shadow-sm p-2 text-center"
+                id="fullname"
+                placeholder=" Ang Ganda Nya"
+                className="form-control rounded border-input shadow-sm p-1 mt-1"
                 required
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                value={formik.values.fname}
+                value={formik.values.fullname}
               />
             </div>
-            <div className="mb-2">
-              <label htmlFor="email"></label>
+            {formik.errors.fullname && (
+              <span className="error-text fs-bold">
+              {formik.errors.fullname}
+              </span>
+            )}
+
+
+            <div className="mb-2 fw-semibold">
+              <label htmlFor="email">Email</label>
               <input
                 type="email"
                 id="email"
-                placeholder=" Email"
-                className="form-control rounded-pill shadow-sm p-2 text-center"
+                placeholder=" totooba@gmail.com"
+                className="form-control rounded shadow-sm p-1 mt-1"
                 required
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.email}
               />
             </div>
-            <div className="mb-2">
-              <label htmlFor="password"></label>
+            {formik.errors.email && (
+              <span className="error-text fs-bold">
+              {formik.errors.email}
+              </span>
+            )}
+
+
+            <div className="mb-2 fw-semibold">
+              <label htmlFor="password">Password</label>
               <input
                 type="password"
                 id="password"
-                placeholder="Password"
-                className="form-control rounded-pill shadow-sm p-2 text-center"
+                placeholder=" ********"
+                className="form-control rounded shadow-sm p-1 mt-1"
                 required
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.password}
               />
             </div>
-            <div className="mb-2">
-              <label htmlFor="rpassword"></label>
+            {formik.errors.password && (
+              <span className="error-text fs-bold">
+              {formik.errors.password}
+              </span>
+            )}
+
+
+            <div className="mb-2 fw-semibold">
+              <label htmlFor="confirmPassword">Confim Password</label>
               <input
                 type="password"
-                id="rpassword"
-                placeholder="Confirm Password"
-                className="form-control rounded-pill shadow-sm p-2 text-center"
+                id="confirmPassword"
+                placeholder=" ********"
+                className="form-control rounded shadow-sm p-1 mt-1"
                 required
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                value={formik.values.rpassword}
+                value={formik.values.confirmPassword}
               />
             </div>
-            <div className="d-flex justify-content-center mt-3">
-              {/* <Link to="/"> */}
+            {formik.errors.confirmPassword && (
+              <span className="error-text fs-bold">
+              {formik.errors.confirmPassword}
+              </span>
+            )}
+
+
+            <Link to="/"><div className="d-flex justify-content-center mt-3">
               <button
                 type="submit"
-                className="rounded-pill bg-gerwin"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
+                className="rounded-pill p-2 bg-gerwin"
               >
                 Register
               </button>
-              {/* </Link> */}
-              <div
-                className="modal fade"
-                id="exampleModal"
-                tabIndex="-1"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true"
-              >
-                <div className="modal-dialog">
-                  <div className="modal-content">
-                    <div className="modal-header">
-                      <h1 className="modal-title fs-5" id="exampleModalLabel">
-                        Thank you!
-                      </h1>
-                      <button
-                        type="button"
-                        className="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div className="modal-body">
-                      Account has been succussfuly created.
-                    </div>
-                    <div className="modal-footer">
-                      {/* <Link to="/"> */}
-                      <div className="bg-gerwin-modal rounded-pill text-center">
-                        <button type="submit" className="btn rounded-pill">
-                          <span className="modal-save">Save</span>
-                        </button>
-                      </div>
-                      {/* </Link> */}
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
+            </Link>
             <p className="mt-3 text-center">
               Already have an account? <Link to="/">Sign-in</Link>
             </p>
           </form>
+          <div aria-live="polite" aria-atomic="true" className="bg-info position-relative bd-example-toasts">
+            <div id="livetoast" className="toast-container position-absolute p-3">
+              <div className="toast">
+                <div className="toast-header">
+                  <small>11 mins ago</small>
+                </div>
+                <div className="toast-body">
+                  Hello, world! This is a toast message.
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>

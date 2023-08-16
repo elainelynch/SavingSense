@@ -14,7 +14,7 @@ import { BiLogOut } from "react-icons/bi";
 function Navbar() {
   return(
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg ">
         <div className="container-fluid d-flex">
           <div className="logo-margin">
            <img src={savingsense} alt="Savingsense logo"  width="250" className="savingsense-logo"/>

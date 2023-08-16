@@ -271,8 +271,14 @@ ul {
 }
 
 .bg-savingsense{
+  background-color: #F5B445;
+}
+
+.bg-color {
   background-color: var(--koji-orange);
 }
+
+
 
 .sign-in-dashboard{
   font-size: 30px;
@@ -517,7 +523,7 @@ ul {
 
 
   .ul-margin{
-    margin-left: -20px;
+    margin-left: -10px;
   }
 
   .side-bar{
@@ -644,9 +650,6 @@ ul {
     font-size: 1em;
    }
 
-   .ul-margin{
-    margin-left: -40%;
-  }
 
   .sign-out-color{
     visibility: hidden;

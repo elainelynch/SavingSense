@@ -53,7 +53,7 @@ function Dashboard() {
   
   return (
     <>
-      <div className="bg-savingsense fixed-top">
+      <div className="bg-color fixed-top">
         <Navbar />
       </div>
       <div className="main-container">
@@ -145,34 +145,34 @@ function Dashboard() {
           </div>
           <div className="container list-center ms-2 row mt-5">
             <div className="card-list-s text-center col-4 col-md-2 rounded">
-              <h5 className="list text-center mt-2 rounded">
+              <h5 className="list text-center mt-2 p-2 rounded">
                 <FcList size={20} />{" "}
                 <span className="list-text fw-bold fs-5">List</span>
               </h5>
             </div>
           </div>
 
-          <div className="container list-container overflow-auto">
+          <div className="container list-container overflow-auto mt-3">
             <div className="row text-center">
               <div className="col-3">
                 <p className="fw-bold">Date</p>
-                <p>00/00/0000</p>
+                <p className="mt-3">00/00/0000</p>
               </div>
               <div className="col-3">
                 <p className="fw-bold">Type</p>
-                <p>Income</p>
+                <p className="mt-3">Income</p>
               </div>
               <div className="col-3">
                 <p className="fw-bold">Category</p>
-                <p>Gifts and Donations</p>
+                <p className="mt-3">Gifts and Donations</p>
               </div>
               <div className="col-3">
                 <p className="fw-bold">Amount</p>
-                <p>100,000</p>
+                <p className="mt-3">100,000</p>
               </div>
               <div>
-                <p className="fw-bold">Note:</p>
-                <span className="fs-7">
+                <p className="fw-bold mt-4">Note:</p>
+                <span className="fs-7 mt-3">
                   rgesrgreghreshrehrthrthjtrhrthhthrthrtregregregregreahesrhetshetheth
                   ergregre reagregregregr ergrgregber regrtgergergerg
                   aergrgregtresgesrgesr awegergregareghearhre
@@ -184,7 +184,7 @@ function Dashboard() {
           <div className="container transaction-center row ms-2  mt-5">
             <div className="card-new-trans col-10 col-md-3 rounded">
               <h5
-                className="list text-center mt-2"
+                className="list text-center mt-2 p-2"
                 data-bs-toggle="collapse"
                 href="#multiCollapseExample2"
                 role="button"
@@ -229,6 +229,8 @@ function Dashboard() {
                               {formik.errors.date}
                             </span>
                           )}
+
+                          
                           <div className="input-group mt-2">
                             <label className="input-group-text" htmlFor="type">
                               <span className="incometext">
@@ -244,7 +246,7 @@ function Dashboard() {
                             >
                               <option defaultValue>Type...</option>
                               <option defaultValue="1" className="color-income">
-                              <TbCurrencyPeso size={30} />Income
+                              Income
                               </option>
                               <option
                                 defaultValue="2"
@@ -259,6 +261,8 @@ function Dashboard() {
                               {formik.errors.type}
                             </span>
                           )}
+
+
                           <div className="input-group mt-2">
                             <label
                               className="input-group-text"
@@ -421,6 +425,8 @@ function Dashboard() {
                               {formik.errors.category}
                             </span>
                           )}
+
+
                           <div className="input-group mt-2">
                             <span className="input-group-text" id="amount">
                               <span className="incometext">
@@ -443,6 +449,8 @@ function Dashboard() {
                               {formik.errors.amount}
                             </span>
                           )}
+
+
                           <div className="mt-2">
                             <span htmlFor="note" className="form-label">
                               <span className="incometext">
@@ -459,10 +467,14 @@ function Dashboard() {
                               onChange={formik.handleChange}
                             ></textarea>
                           </div>
+
+
+
                           <div className="col-12 save mb-4">
                             <button
                               type="submit"
                               className="col-3 save1 new-trans text-center rounded mt-4"
+                              id="save"
                             >
                               <span className="list-text fw-bold fs-5 p-1">
                                 Save
@@ -478,7 +490,7 @@ function Dashboard() {
                               <small>11 mins ago</small>
                             </div>
                             <div className="toast-body">
-                              Hello, world! This is a toast message.
+                              Succesfully login
                             </div>
                           </div>
                         </div>

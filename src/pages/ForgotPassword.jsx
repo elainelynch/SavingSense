@@ -22,15 +22,17 @@ function ForgotPassword() {
                     <div className="react-icon mb-3">
                     <IoAlertCircle size={70} />
                     </div>
-                    <div className="mb-2">
+
                     <h3 className="start-end mb-3 text-center">Forgot Password</h3>
                     <p className="mb-2 text-center">Enter your email and we'll send you a <br /> link to reset your password.</p>
-                    <label htmlFor="email"></label>
-                    <input type="text" placeholder="Email" className="form-control rounded-pill border-input shadow-sm p-2 text-center" required/>
+
+                    <div className="mb-2 fw-semibold mt-4">
+                        <label htmlFor="email">Email</label>
+                        <input type="text" placeholder=" totooba@gmail.com" className="form-control rounded border-input shadow-sm p-1 mt-1" required/>
                     </div>
-                    <div className="d-flex justify-content-center mt-3">
+                    <div className="d-flex justify-content-center mt-4">
                         <Link to="/">
-                        <button type="submit" className="rounded-pill bg-wanda" data-bs-toggle="modal" data-bs-target="#exampleModal"><span className="submit">Submit</span></button>
+                        <button type="submit" className="rounded-pill p-2 bg-wanda" data-bs-toggle="modal" data-bs-target="#exampleModal"><span className="submit">Submit</span></button>
                         </Link>
                     </div>
                     <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
