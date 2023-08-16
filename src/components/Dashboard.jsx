@@ -18,8 +18,9 @@ import { BiLogOut } from "react-icons/bi";
 import { GrTransaction } from "react-icons/gr";
 import { useFormik } from "formik";
 import { Value } from "sass";
-import Income from "./Income";
 import * as Yup from "yup";
+import { Toast } from "bootstrap";
+import {TbCurrencyPeso} from "react-icons/tb";
 
 function Dashboard() {
   const formik = useFormik({
@@ -40,6 +41,7 @@ function Dashboard() {
 
     onSubmit: (value) => {
       console.log(value);
+      new Toast(document.getElementById('save')).show()
     },
   });
 
@@ -48,7 +50,7 @@ function Dashboard() {
       document.title = "Dashboard";
     }, []);
   }
-
+  
   return (
     <>
       <div className="bg-savingsense fixed-top">
@@ -119,9 +121,7 @@ function Dashboard() {
                   <span className="i-e-b fw-bold">Income</span>
                 </h5>
                 <hr />
-                <h5 className="text-center fw-bold i-e-b">
-                  <Income />
-                </h5>
+                <h5 className="text-center fw-bold i-e-b"></h5>
               </div>
             </div>
             <div className="col-10 col-md-3 col-sm-3  mt-3  expense rounded shadow-sm p-3">
@@ -172,7 +172,7 @@ function Dashboard() {
               </div>
               <div>
                 <p className="fw-bold">Note:</p>
-                <span className="fs-5">
+                <span className="fs-7">
                   rgesrgreghreshrehrthrthjtrhrthhthrthrtregregregregreahesrhetshetheth
                   ergregre reagregregregr ergrgregber regrtgergergerg
                   aergrgregtresgesrgesr awegergregareghearhre
@@ -208,8 +208,7 @@ function Dashboard() {
                       <form
                         onSubmit={formik.handleSubmit}
                         className="w-100"
-                        width="100px"
-                      >
+                        width="100px">
                         <fieldset>
                           <div className="input-group mt-2" width="100px">
                             <span className="input-group-text" id="date">
@@ -223,8 +222,7 @@ function Dashboard() {
                               aria-describedby="date"
                               id="date"
                               value={formik.values.date}
-                              onChange={formik.handleChange}
-                            />
+                              onChange={formik.handleChange}/>
                           </div>
                           {formik.errors.date && (
                             <span className="error-text fs-bold">
@@ -234,7 +232,7 @@ function Dashboard() {
                           <div className="input-group mt-2">
                             <label className="input-group-text" htmlFor="type">
                               <span className="incometext">
-                                <GiExpense size={20} />{" "}
+                                <GiExpense size={20} />
                                 <span className="l1">Type of Transaction</span>
                               </span>
                             </label>
@@ -246,7 +244,7 @@ function Dashboard() {
                             >
                               <option defaultValue>Type...</option>
                               <option defaultValue="1" className="color-income">
-                                Income
+                              <TbCurrencyPeso size={30} />Income
                               </option>
                               <option
                                 defaultValue="2"
@@ -293,10 +291,7 @@ function Dashboard() {
                               <option defaultValue="5" className="color-income">
                                 Savings
                               </option>
-                              <option
-                                defaultValue="6"
-                                className="color-expense"
-                              >
+                              <option defaultValue="6" className="color-expense">
                                 Food and Drink
                               </option>
                               <option
@@ -476,6 +471,18 @@ function Dashboard() {
                           </div>
                         </fieldset>
                       </form>
+                      <div aria-live="polite" aria-atomic="true" className="bg-dark position-relative bd-example-toasts">
+                        <div id="save" className="toast-container position-absolute p-3">
+                          <div className="toast">
+                            <div className="toast-header">
+                              <small>11 mins ago</small>
+                            </div>
+                            <div className="toast-body">
+                              Hello, world! This is a toast message.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
