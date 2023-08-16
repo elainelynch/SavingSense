@@ -8,7 +8,7 @@ const AppReducer = (state, action) => {
 };
 
 const initialState = {
-  income: 20000,
+  income: 50000,
   expense: [
     {
       id: 1,
@@ -25,6 +25,7 @@ const initialState = {
       user_id: 1,
     },
   ],
+  transactions: []
 };
 
 export const AppContext = createContext();
@@ -37,6 +38,7 @@ export const AppProvider = (props) => {
       value={{
         income: state.income,
         expense: state.expense,
+        transactions: state.transactions,
         dispatch,
       }}
     >
