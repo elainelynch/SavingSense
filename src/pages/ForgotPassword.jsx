@@ -6,6 +6,7 @@ import savingsense from "/savingsense.png";
 import { IoAlertCircle } from "react-icons/io5";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { Toaster, toast } from "react-hot-toast";
 
 function ForgotPassword() {
   const formik = useFormik({
@@ -23,6 +24,10 @@ function ForgotPassword() {
       console.log(value);
     },
   });
+
+  const showAlert = () => {
+    toast.success("Email has been sent!");
+  };
 
   useEffect(() => {
     document.title = "Forgot Password";
@@ -74,11 +79,13 @@ function ForgotPassword() {
               {/* <Link to="/"> */}
               <button
                 type="submit"
+                onClick={showAlert}
                 className="rounded-pill p-2 bg-wanda"
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
               >
-                <span className="submit">Submit</span>
+                <span className="submit">Submit </span>
+                <Toaster />
               </button>
               {/* </Link> */}
             </div>
@@ -89,7 +96,7 @@ function ForgotPassword() {
               aria-labelledby="exampleModalLabel"
               aria-hidden="true"
             >
-              <div className="modal-dialog">
+              {/* <div className="modal-dialog">
                 <div className="modal-content">
                   <div className="modal-header">
                     <h1 className="modal-title fs-5" id="exampleModalLabel">
@@ -116,7 +123,7 @@ function ForgotPassword() {
                     </Link>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </form>
         </div>

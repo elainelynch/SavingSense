@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../style/register.scss";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
@@ -7,7 +7,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import { Toast } from "bootstrap";
+import { Toaster, toast } from "react-hot-toast";
 
 function Register() {
   const formik = useFormik({
@@ -31,9 +31,12 @@ function Register() {
 
     onSubmit: (value) => {
       console.log(value);
-      new Toast(document.getElementById("livetoast")).show();
     },
   });
+
+  const showAlert = () => {
+    toast.success("Successfully Registered!");
+  };
 
   useEffect(() => {
     document.title = "Register";
@@ -141,8 +144,13 @@ function Register() {
 
             {/* <Link to="/"> */}
             <div className="d-flex justify-content-center mt-3">
-              <button type="submit" className="rounded-pill p-2 bg-gerwin">
+              <button
+                onClick={showAlert}
+                type="submit"
+                className="rounded-pill p-2 bg-gerwin"
+              >
                 Register
+                <Toaster />
               </button>
             </div>
             {/* </Link> */}
@@ -150,25 +158,6 @@ function Register() {
               Already have an account? <Link to="/">Sign-in</Link>
             </p>
           </form>
-          <div
-            aria-live="polite"
-            aria-atomic="true"
-            className="bg-info position-relative bd-example-toasts"
-          >
-            <div
-              id="livetoast"
-              className="toast-container position-absolute p-3"
-            >
-              <div className="toast">
-                <div className="toast-header">
-                  <small>11 mins ago</small>
-                </div>
-                <div className="toast-body">
-                  Hello, world! This is a toast message.
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </>

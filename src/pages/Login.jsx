@@ -8,6 +8,7 @@ import * as EmailValidator from "email-validator";
 import * as Yup from "yup";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Toast } from "bootstrap";
+import { Toaster, toast } from "react-hot-toast";
 
 function Login() {
   const formik = useFormik({
@@ -25,9 +26,12 @@ function Login() {
 
     onSubmit: (value) => {
       console.log(value);
-      new Toast(document.getElementById("login")).show();
     },
   });
+
+  const showAlert = () => {
+    toast.success("Successfully Logged In!");
+  };
 
   useEffect(() => {
     document.title = "Login";
@@ -95,8 +99,13 @@ function Login() {
             </div>
             {/* <Link to="/dashboard"> */}
             <div className="d-flex justify-content-center mt-3">
-              <button type="submit" className="rounded-pill p-2 bg-gerwin">
+              <button
+                onClick={showAlert}
+                type="submit"
+                className="rounded-pill p-2 bg-gerwin"
+              >
                 Login
+                <Toaster />
               </button>
             </div>
             {/* </Link> */}
