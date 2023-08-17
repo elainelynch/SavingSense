@@ -25,8 +25,7 @@ function Login() {
 
     onSubmit: (value) => {
       console.log(value);
-      new Toast(document.getElementById('login')).show() 
-
+      new Toast(document.getElementById("login")).show();
     },
   });
 
@@ -39,6 +38,7 @@ function Login() {
       <div className="login d-flex justify-content-center align-items-center vh-100 bg-login">
         <div className="form_container">
           <form
+            onSubmit={formik.handleSubmit}
             className="container bg-log-in p-5 rounded"
           >
             <div className="logo-center">
@@ -51,7 +51,6 @@ function Login() {
             </div>
 
             <h3 className="start-end mb-3 text-center">Login</h3>
-
 
             <div className="mb-2 fw-semibold">
               <label htmlFor="email">Email</label>
@@ -66,10 +65,9 @@ function Login() {
                 value={formik.values.email}
               />
               {formik.touched.email && formik.errors.email ? (
-                <div>{formik.errors.email}</div>
+                <div className="error-text fs-bold">{formik.errors.email}</div>
               ) : null}
             </div>
-
 
             <div className="mb-2 fw-semibold">
               <label htmlFor="password">Password</label>
@@ -84,22 +82,24 @@ function Login() {
                 value={formik.values.password}
               />
               {formik.touched.password && formik.errors.password ? (
-                <div>{formik.errors.password}</div>
+                <div className="error-text fs-bold">
+                  {formik.errors.password}
+                </div>
               ) : null}
             </div>
-
 
             <div className="d-flex justify-content-center mt-3">
               <p className="mt-3 fw-semi bold">
                 <Link to="/forgotpassword">Forgot Password?</Link>
               </p>
             </div>
-            <Link to="/dashboard"><div className="d-flex justify-content-center mt-3">
+            {/* <Link to="/dashboard"> */}
+            <div className="d-flex justify-content-center mt-3">
               <button type="submit" className="rounded-pill p-2 bg-gerwin">
                 Login
-              </button> 
+              </button>
             </div>
-            </Link>
+            {/* </Link> */}
 
             <div className="d-flex justify-content-center mt-3">
               <p className="mt-3">
@@ -108,8 +108,11 @@ function Login() {
             </div>
           </form>
 
-
-          <div aria-live="polite" aria-atomic="true" className="bg-dark position-relative bd-example-toasts">
+          <div
+            aria-live="polite"
+            aria-atomic="true"
+            className="bg-dark position-relative bd-example-toasts"
+          >
             <div id="login" className="toast-container position-absolute p-3">
               <div className="toast">
                 <div className="toast-header">
@@ -120,7 +123,7 @@ function Login() {
                 </div>
               </div>
             </div>
-          </div>   
+          </div>
         </div>
       </div>
     </>

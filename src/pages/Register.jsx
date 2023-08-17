@@ -12,26 +12,26 @@ import { Toast } from "bootstrap";
 function Register() {
   const formik = useFormik({
     initialValues: {
-      fullname: "",
+      fullName: "",
       email: "",
       password: "",
       confirmPassword: "",
     },
 
     validationSchema: Yup.object({
+      fullName: Yup.string().required("Full Name is required"),
       email: Yup.string()
         .email("Invalid email address")
         .required("Email address is required"),
       password: Yup.string().required("Password is required"),
-      confirmPassword: Yup.string().oneOf(
-        [Yup.ref("password"), ""],
-        "Password must match"
-      ),
+      confirmPassword: Yup.string()
+        .oneOf([Yup.ref("password"), ""], "Password must match.")
+        .required("Password is required"),
     }),
 
-    onSubmit: (values) => {
-      console.log(values);
-      new Toast(document.getElementById('livetoast')).show() 
+    onSubmit: (value) => {
+      console.log(value);
+      new Toast(document.getElementById("livetoast")).show();
     },
   });
 
@@ -42,7 +42,6 @@ function Register() {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Process form data here
-
   };
 
   return (
@@ -66,26 +65,24 @@ function Register() {
               <span className="text-uppercase">A</span>ccount
             </h3>
 
-
             <div className="mb-2 mt-3 fw-semibold">
               <label htmlFor="fullname">Full Name</label>
               <input
                 type="text"
-                id="fullname"
-                placeholder=" Ang Ganda Nya"
+                id="fullName"
+                placeholder=" Ang Gwapo Nya"
                 className="form-control rounded border-input shadow-sm p-1 mt-1"
                 required
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                value={formik.values.fullname}
+                value={formik.values.fullName}
               />
             </div>
-            {formik.errors.fullname && (
+            {formik.errors.fullName && (
               <span className="error-text fs-bold">
-              {formik.errors.fullname}
+                {formik.errors.fullName}
               </span>
             )}
-
 
             <div className="mb-2 fw-semibold">
               <label htmlFor="email">Email</label>
@@ -101,11 +98,8 @@ function Register() {
               />
             </div>
             {formik.errors.email && (
-              <span className="error-text fs-bold">
-              {formik.errors.email}
-              </span>
+              <span className="error-text fs-bold">{formik.errors.email}</span>
             )}
-
 
             <div className="mb-2 fw-semibold">
               <label htmlFor="password">Password</label>
@@ -122,13 +116,12 @@ function Register() {
             </div>
             {formik.errors.password && (
               <span className="error-text fs-bold">
-              {formik.errors.password}
+                {formik.errors.password}
               </span>
             )}
 
-
             <div className="mb-2 fw-semibold">
-              <label htmlFor="confirmPassword">Confim Password</label>
+              <label htmlFor="confirmPassword">Confirm Password</label>
               <input
                 type="password"
                 id="confirmPassword"
@@ -142,26 +135,30 @@ function Register() {
             </div>
             {formik.errors.confirmPassword && (
               <span className="error-text fs-bold">
-              {formik.errors.confirmPassword}
+                {formik.errors.confirmPassword}
               </span>
             )}
 
-
-            <Link to="/"><div className="d-flex justify-content-center mt-3">
-              <button
-                type="submit"
-                className="rounded-pill p-2 bg-gerwin"
-              >
+            {/* <Link to="/"> */}
+            <div className="d-flex justify-content-center mt-3">
+              <button type="submit" className="rounded-pill p-2 bg-gerwin">
                 Register
               </button>
             </div>
-            </Link>
+            {/* </Link> */}
             <p className="mt-3 text-center">
               Already have an account? <Link to="/">Sign-in</Link>
             </p>
           </form>
-          <div aria-live="polite" aria-atomic="true" className="bg-info position-relative bd-example-toasts">
-            <div id="livetoast" className="toast-container position-absolute p-3">
+          <div
+            aria-live="polite"
+            aria-atomic="true"
+            className="bg-info position-relative bd-example-toasts"
+          >
+            <div
+              id="livetoast"
+              className="toast-container position-absolute p-3"
+            >
               <div className="toast">
                 <div className="toast-header">
                   <small>11 mins ago</small>
