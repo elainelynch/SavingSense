@@ -81,22 +81,22 @@ function ForgotPassword() {
                 type="submit"
                 onClick={showAlert}
                 className="rounded-pill p-2 bg-wanda"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
+                // data-bs-toggle="modal"
+                // data-bs-target="#exampleModal"
               >
                 <span className="submit">Submit </span>
                 <Toaster />
               </button>
               {/* </Link> */}
             </div>
-            <div
+            {/* <div
               className="modal fade"
               id="exampleModal"
               tabIndex="-1"
               aria-labelledby="exampleModalLabel"
               aria-hidden="true"
-            >
-              {/* <div className="modal-dialog">
+            > */}
+            {/* <div className="modal-dialog">
                 <div className="modal-content">
                   <div className="modal-header">
                     <h1 className="modal-title fs-5" id="exampleModalLabel">
@@ -124,7 +124,7 @@ function ForgotPassword() {
                   </div>
                 </div>
               </div> */}
-            </div>
+            {/* </div> */}
           </form>
         </div>
       </div>
