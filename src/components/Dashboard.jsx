@@ -26,13 +26,19 @@ function Dashboard(props) {
       type: 'Income',
       category: 'business',
       amount: '2000',
-      note: 'hello World th trges e rherh erh erhreshrseher erer 4a  eae eatt3e4at4 4 t4 4t4tt tatt aet4t34et t34 t43t 4t 34t34t43t3t4t34543t43t 4334t34t34t43t43tergaer34 43 34t34t43tergw3a4yaty  3yay5 yta34taw4y43ay34 yya34 y43ay',
+      note: 'hello World',
     },
    
   ]);
 
   const todoList = transactionList.map(
-    transaction => <TodoList key={transaction.id} date={transaction.date} type={transaction.type} category={transaction.category} amount={transaction.amount} note={transaction.note}/>
+    transaction => <TodoList 
+    key={transaction.id} 
+    date={transaction.date} 
+    type={transaction.type} 
+    category={transaction.category} 
+    amount={transaction.amount} 
+    note={transaction.note}/>
   )
 
   function addTask(date, type, category, amount, note) {
