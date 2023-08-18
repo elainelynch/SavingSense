@@ -44,7 +44,7 @@ function Dashboard(props) {
     fetchTransactionList();
   }, []);
 
-  const TodoList = transactionList.map((transaction) => (
+  const todoList = transactionList.map((transaction) => (
     <TodoList
       key={transaction.id}
       date={transaction.date}
@@ -191,10 +191,10 @@ function Dashboard(props) {
               <div className="">
                 <p className="fw-bold mt-4">Note</p>
               </div>
-              <TodoList />
+              {todoList}
             </div>
           </div>
-          <TransactionForm  />
+          <TransactionForm addTask={addTask} />
         </div>
       </div>
     </>

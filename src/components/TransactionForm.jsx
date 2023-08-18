@@ -22,7 +22,7 @@ function TransactionForm(props) {
   } 
 
   function handleTextChange(e){
-    setTransaction(e.target.value)
+    setTask(e.target.value)
   }
   
    const formik = useFormik({
