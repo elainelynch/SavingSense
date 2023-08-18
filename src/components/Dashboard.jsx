@@ -16,52 +16,62 @@ import * as Yup from "yup";
 import TransactionForm from "./TransactionForm";
 import TodoList from "./TodoList";
 import { FcList } from "react-icons/fc";
-
+import axios from "axios";
 
 function Dashboard(props) {
-  const [ transactionList, setTransactionList ] = useState([
+  const [transactionList, setTransactionList] = useState([
     {
       id: 1,
-      date: '17/08/2023',
-      type: 'Income',
-      category: 'business',
-      amount: '2000',
-      note: 'hello World',
+      date: "17/08/2023",
+      type: "Income",
+      category: "business",
+      amount: "2000",
+      note: "hello World",
     },
-   
   ]);
 
-  const todoList = transactionList.map(
-    transaction => <TodoList 
-    key={transaction.id} 
-    date={transaction.date} 
-    type={transaction.type} 
-    category={transaction.category} 
-    amount={transaction.amount} 
-    note={transaction.note}/>
-  )
 
-  function addTask(date, type, category, amount, note) {
-   const taskObj = {
-    id: transactionList.length + 1,
-    date, 
-    type, 
-    category,
-    amount, 
-    note,
+  const fetchTransactionList = async () => {
+    const res = await axios ('http://localhost:8000/api/v1/transactions')
+    // setTransactionList(res.data.transactionList)
+    // const res = await axios ('http://localhost:8000/api/v1/users')
+    console.log(res.data)
 
-   }
-
-   setTransactionList([...transactionList, taskObj])
-
+    
   }
 
+  useEffect(() => {
+    fetchTransactionList();
+  }, []);
+
+  const TodoList = transactionList.map((transaction) => (
+    <TodoList
+      key={transaction.id}
+      date={transaction.date}
+      type={transaction.type}
+      category={transaction.category}
+      amount={transaction.amount}
+      note={transaction.note}
+    />
+  ));
+
+  function addTask(date, type, category, amount, note) {
+    const taskObj = {
+      id: transactionList.length + 1,
+      date,
+      type,
+      category,
+      amount,
+      note,
+    };
+
+    setTransactionList([...transactionList, taskObj]);
+  }
 
   useEffect(() => {
     document.title = "Dashboard";
   }, []);
-  
-  
+
   return (
     <>
       <div className="bg-color fixed-top">
@@ -168,7 +178,7 @@ function Dashboard(props) {
             <div className="row text-center mt-5">
               <div className="col-3">
                 <p className="fw-bold">Date</p>
-              </div>   
+              </div>
               <div className="col-3">
                 <p className="fw-bold">Type</p>
               </div>
@@ -181,14 +191,10 @@ function Dashboard(props) {
               <div className="">
                 <p className="fw-bold mt-4">Note</p>
               </div>
-              {todoList}
-
+              <TodoList />
             </div>
           </div>
-
-          <TransactionForm addTask={addTask}/>
-
-
+          <TransactionForm  />
         </div>
       </div>
     </>

@@ -14,15 +14,15 @@ import { useState } from "react";
 
 
 function TransactionForm(props) { 
-  const [task, setTask] = useState('')
+  const [transaction, setTransaction] = useState('')
 
   function handleClick() {
-    props.addTask(task)
-    setTask('')
+    props.addTask(transaction)
+    setTransaction('')
   } 
 
   function handleTextChange(e){
-    setTask(e.target.value)
+    setTransaction(e.target.value)
   }
   
    const formik = useFormik({
@@ -95,7 +95,8 @@ function TransactionForm(props) {
                           aria-describedby="date"
                           id="date"
                           value={formik.values.date}
-                          onChange={formik.handleChange}/>
+                          onChange={formik.handleChange}
+                          />
                       </div>
                       {formik.errors.date && (
                         <span className="error-text fs-bold">
