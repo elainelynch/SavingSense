@@ -7,7 +7,6 @@ import Dashboard from "./components/Dashboard";
 import { AppProvider } from "./context/AppContext";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
-
 function App() {
   return (
     <>
