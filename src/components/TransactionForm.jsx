@@ -9,39 +9,32 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Toast } from "bootstrap";
 import { useState } from "react";
+import axios from "axios";
 
-
-
-
-function TransactionForm(props) { 
-  const [transaction, setTransaction] = useState('')
+function TransactionForm(props) {
+  const [transaction, setTransaction] = useState("");
 
   function handleClick() {
-    setTransaction('')
-  } 
+    setTransaction("");
+  }
 
   // function handleTextChange(e){
   //   setTask(e.target.value)
   // }
 
-  
-
-
   const typeIncome = [
-    { 
+    {
       value: "1",
-     label: "Income" 
+      label: "Income",
     },
-  ]
-
-  const typeExpense = [
-    { 
-    value: "2", 
-    label: "Expense" },
   ];
 
-
-
+  const typeExpense = [
+    {
+      value: "2",
+      label: "Expense",
+    },
+  ];
 
   const categoryIncome = [
     // ... list of category options ...
@@ -51,7 +44,7 @@ function TransactionForm(props) {
     { value: "4", label: "Pension" },
     { value: "5", label: "Savings" },
     { value: "6", label: "Food and Drink" },
-  ]
+  ];
 
   const categoryExpense = [
     { value: "7", label: "Electric Bill" },
@@ -74,10 +67,9 @@ function TransactionForm(props) {
     { value: "24", label: "Clothing" },
     { value: "25", label: "Electronics and Gadgets" },
     { value: "26", label: "Study" },
-
   ];
-  
-   const formik = useFormik({
+
+  const formik = useFormik({
     initialValues: {
       date: "",
       type: "",
@@ -85,7 +77,6 @@ function TransactionForm(props) {
       amount: "",
       note: "",
     },
-    
 
     validationSchema: Yup.object({
       date: Yup.string().required("Date is required"),
@@ -93,20 +84,32 @@ function TransactionForm(props) {
       category: Yup.string().required("Category is required"),
       amount: Yup.string().required("Amount is required"),
       note: Yup.string().required("Note is required"),
-
     }),
 
-    onSubmit: (value) => {
-      console.log(value);
-      new Toast(document.getElementById('save')).show()
+    onSubmit: async (value) => {
+      console.log("form data", value);
+      const res = await axios.post(
+        "http://localhost:8000/api/v1/transactions",
+        {
+          date: value.date,
+          type: value.type,
+          category: value.category,
+          amount: value.amount,
+          note: value.note,
+          userId: 1,
+        },
+        {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        }
+      );
+      console.log(res);
+      new Toast(document.getElementById("save")).show();
     },
-
-    
-
   });
 
-  
-  return(
+  return (
     <>
       <div className="container transaction-center row ms-1 mt-5">
         <div className="card-new-trans transaction-margin col-10 col-md-3 rounded">
@@ -135,7 +138,8 @@ function TransactionForm(props) {
                   <form
                     onSubmit={formik.handleSubmit}
                     className="w-100"
-                    width="100px">
+                    width="100px"
+                  >
                     <fieldset>
                       <div className="input-group mt-2" width="100px">
                         <span className="input-group-text" id="date">
@@ -150,7 +154,7 @@ function TransactionForm(props) {
                           id="date"
                           value={formik.values.date}
                           onChange={formik.handleChange}
-                          />
+                        />
                       </div>
                       {formik.errors.date && (
                         <span className="error-text fs-bold">
@@ -158,7 +162,6 @@ function TransactionForm(props) {
                         </span>
                       )}
 
-                      
                       <div className="input-group mt-2">
                         <label className="input-group-text" htmlFor="type">
                           <span className="incometext">
@@ -176,19 +179,25 @@ function TransactionForm(props) {
                           <option defaultValue>Type...</option>
 
                           {typeIncome.map((option) => (
-                          <option defaultValue="1" className="color-income"
-                          key={option.value} 
-                          value={option.value}>
-                          {option.label}
-                          </option>
+                            <option
+                              defaultValue="1"
+                              className="color-income"
+                              key={option.value}
+                              value={option.value}
+                            >
+                              {option.label}
+                            </option>
                           ))}
 
                           {typeExpense.map((option) => (
-                          <option defaultValue="1" className="color-expense"
-                          key={option.value} 
-                          value={option.value}>
-                          {option.label}
-                          </option>
+                            <option
+                              defaultValue="1"
+                              className="color-expense"
+                              key={option.value}
+                              value={option.value}
+                            >
+                              {option.label}
+                            </option>
                           ))}
                         </select>
                       </div>
@@ -198,15 +207,12 @@ function TransactionForm(props) {
                         </span>
                       )}
 
-
                       <div className="input-group mt-2">
-                        <label
-                          className="input-group-text"
-                          htmlFor="category">
+                        <label className="input-group-text" htmlFor="category">
                           <span className="incometext">
                             <BiCategoryAlt size={20} />{" "}
                             <span className="l1">Category</span>
-                          </span>                         
+                          </span>
                         </label>
 
                         <select
@@ -215,24 +221,29 @@ function TransactionForm(props) {
                           value={formik.values.category}
                           onChange={formik.handleChange}
                         >
-
                           <option defaultValue>Choose...</option>
 
                           {categoryIncome.map((option) => (
-                          <option defaultValue="1" className="color-income"
-                          key={option.value} value={option.value}>
-                            {option.label}
-                          </option>
+                            <option
+                              defaultValue="1"
+                              className="color-income"
+                              key={option.value}
+                              value={option.value}
+                            >
+                              {option.label}
+                            </option>
                           ))}
 
                           {categoryExpense.map((option) => (
-                          <option defaultValue="2" className="color-expense"
-                          key={option.value} value={option.value}>
-                            {option.label}
-                          </option>
+                            <option
+                              defaultValue="2"
+                              className="color-expense"
+                              key={option.value}
+                              value={option.value}
+                            >
+                              {option.label}
+                            </option>
                           ))}
-
-
                         </select>
                       </div>
                       {formik.errors.category && (
@@ -240,7 +251,6 @@ function TransactionForm(props) {
                           {formik.errors.category}
                         </span>
                       )}
-
 
                       <div className="input-group mt-2">
                         <span className="input-group-text" id="amount">
@@ -265,7 +275,6 @@ function TransactionForm(props) {
                         </span>
                       )}
 
-
                       <div className="mt-2">
                         <span htmlFor="note" className="form-label">
                           <span className="incometext">
@@ -287,7 +296,6 @@ function TransactionForm(props) {
                         </span>
                       )}
 
-
                       <div className="col-12 save mb-4">
                         <button
                           type="submit"
@@ -295,22 +303,27 @@ function TransactionForm(props) {
                           id="save"
                           onClick={handleClick}
                         >
-                          <span className="list-text fw-bold fs-5 p-1" >
+                          <span className="list-text fw-bold fs-5 p-1">
                             Save
                           </span>
                         </button>
                       </div>
                     </fieldset>
                   </form>
-                  <div aria-live="polite" aria-atomic="true" className="bg-dark position-relative bd-example-toasts">
-                    <div id="save" className="toast-container position-absolute p-3">
+                  <div
+                    aria-live="polite"
+                    aria-atomic="true"
+                    className="bg-dark position-relative bd-example-toasts"
+                  >
+                    <div
+                      id="save"
+                      className="toast-container position-absolute p-3"
+                    >
                       <div className="toast">
                         <div className="toast-header">
                           <small>11 mins ago</small>
                         </div>
-                        <div className="toast-body">
-                          Succesfully saved
-                        </div>
+                        <div className="toast-body">Succesfully saved</div>
                       </div>
                     </div>
                   </div>
@@ -321,7 +334,7 @@ function TransactionForm(props) {
         </div>
       </div>
     </>
-  )
+  );
 }
 
 export default TransactionForm;
