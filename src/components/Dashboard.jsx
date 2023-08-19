@@ -24,7 +24,7 @@ function Dashboard() {
       amount: 100 
     },
     { id: 2, 
-      type: "Expense",
+      type: "Income",
       amount: 50 
     },
     { 
