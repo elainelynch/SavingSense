@@ -19,7 +19,7 @@ function TodoList(props) {
           <p className="mt-3">{amount}</p>
         </div>
         <div className="row">
-          <div className="col-9">
+          <div className="col-9 mt-3">
             <p className="fw-bold mt-4">Note</p>
             <p className="mt-3">{note}</p>
           </div>

@@ -150,25 +150,32 @@ function Dashboard() {
               </h5>
             </div>
           </div>
-
+          <div className="bg-warning">
+            <hr className="border-5"/>
+          </div>
           <div className="container list-container overflow-auto mt-3">
             <div className="row text-center mt-5">
               <div className="col-3">
-                <p className="fw-bold">Date</p>
+                <p className="fw-bold transaction-category">Date</p>
               </div>
               <div className="col-3">
-                <p className="fw-bold">Type</p>
+                <p className="fw-bold transaction-category">Type</p>
               </div>
               <div className="col-3">
-                <p className="fw-bold">Category</p>
+                <p className="fw-bold transaction-category">Category</p>
               </div>
               <div className="col-3">
-                <p className="fw-bold">Amount</p>
+                <p className="fw-bold transaction-category">Amount</p>
               </div>
-              <div className="">
-                <p className="fw-bold mt-4">Note</p>
+              <div className="mt-4">
+                <p className="fw-bold mt-4 transaction-category">Note</p>
               </div>
             </div>
+        
+            <div className="bg-hr">
+              <hr className="border-3"/>
+            </div>
+
             {
               transactions.map(
                 transaction =>  <TodoList

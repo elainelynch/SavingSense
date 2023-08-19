@@ -39,6 +39,8 @@ function TransactionForm(props) {
       type: Yup.string().required("Type of Transaction is required"),
       category: Yup.string().required("Category is required"),
       amount: Yup.string().required("Amount is required"),
+      note: Yup.string().required("Note is required"),
+
     }),
 
     onSubmit: (value) => {
@@ -54,9 +56,9 @@ function TransactionForm(props) {
   return(
     <>
       <div className="container transaction-center row ms-1 mt-5">
-        <div className="card-new-trans col-10 col-md-3 rounded">
+        <div className="card-new-trans transaction-margin col-10 col-md-3 rounded">
           <h5
-            className="list text-center mt-2 p-2"
+            className="list text-center  mt-2 p-2"
             data-bs-toggle="collapse"
             href="#multiCollapseExample2"
             role="button"
@@ -334,12 +336,16 @@ function TransactionForm(props) {
                         <textarea
                           className="form-control"
                           rows="3"
-                          placeholder="Optional"
                           id="note"
                           value={formik.values.note.task}
                           onChange={formik.handleChange}
                         ></textarea>
                       </div>
+                      {formik.errors.note && (
+                        <span className="error-text fs-bold">
+                          {formik.errors.note}
+                        </span>
+                      )}
 
 
                       <div className="col-12 save mb-4">
