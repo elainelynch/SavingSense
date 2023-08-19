@@ -1,8 +1,15 @@
-import React from 'react';
-
+import React from "react";
 
 function TodoList(props) {
-  const { amount, category, date, type, note} = props
+  const { id, amount, category, date, type, note, deleteTransaction } = props;
+
+  const handleDelete = () => {
+    if (window.confirm("Are you sure you want to delete this transaction?")) {
+      // console.log(`Deleting transaction with ID ${id}`);
+      deleteTransaction(id);
+    }
+  };
+
   return (
     <>
       <div className="row text-center mt-5">
@@ -24,15 +31,12 @@ function TodoList(props) {
             <p className="mt-3">{note}</p>
           </div>
           <div className="col-3 mt-5">
-            <button>delete</button>
-          </div>
-          <div className="mt-2">
-            <hr />
+            <button onClick={handleDelete}>Delete</button>
           </div>
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default TodoList
+export default TodoList;

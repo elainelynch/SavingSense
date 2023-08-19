@@ -17,35 +17,69 @@ import TransactionForm from "./TransactionForm";
 
 
 function Dashboard() {
-  const [transactions, setTransactions] = useState([]);
+  const [transactions, setTransactions] = useState([
+    { 
+      id: 1, 
+      type: "Income", 
+      amount: 100 
+    },
+    { id: 2, 
+      type: "Expense",
+      amount: 50 
+    },
+    { 
+      id: 3, 
+      type: "Income", 
+      amount: 200 },
+  ]);
 
+  const addTransaction = (newTransaction) => {
+    setTransactions([...transactions, newTransaction]);
+  };
+
+  const deleteTransaction = (transactionId) => {
+    const updatedTransactions = transactions.filter(
+      (transaction) => transaction.id !== transactionId
+    )
+    setTransactions(updatedTransactions);
+  };
 
   const fetchTransactionList = async () => {
-    const res = await axios ('http://localhost:8000/api/v1/transactions')
-    setTransactions(res.data.data)
+    try {
+      const res = await axios.get("http://localhost:8000/api/v1/transactions"); // Corrected axios syntax
+      setTransactions(res.data.data);
+    } catch (error) {
+      console.error("Error fetching transactions:", error);
+    }
+  };
 
-    
-  }
+    // Calculate income, expenses, and balance based on transactions
+    const calculateValues = () => {
+      let income = 0;
+      let expenses = 0;
+  
+      transactions.forEach((transaction) => {
+        if (transaction.type === "Income") {
+          income += parseFloat(transaction.amount);
+        } else if (transaction.type === "Expense") {
+          expenses += parseFloat(transaction.amount);
+        }
+      });
+  
+      const balance = income - expenses;
+
+      console.log("Income:", income);
+      console.log("Expenses:", expenses);
+      console.log("Balance:", balance);
+
+  
+      return { income, expenses, balance };
+    };
+  
+    const { income, expenses, balance } = calculateValues();
 
   useEffect(() => {
     fetchTransactionList();
-  }, []);
-
-
-  function addTransaction(transactions) {
-    const taskObj = {
-      id: transactions.length + 1,
-      date,
-      type,
-      category,
-      amount,
-      note,
-    };
-
-    setTransactions([...transactions, taskObj]);
-  }
-
-  useEffect(() => {
     document.title = "Dashboard";
   }, []);
 
@@ -107,37 +141,37 @@ function Dashboard() {
                 className="text-center rounded-circle profile-picture1"
               />
             </div>
-            <p className="text-center Profile-name1">Profile-name</p>
+            <p className="text-center Profile-name1 "><span className="mt-3">Profile-name</span></p>
           </div>
           <h2 className="text-center p-2 shadow-sm p-3 fw-bold dashboard-fweight">
             <span className="">Dashboard</span>
           </h2>
-          <div className="row  d-flex justify-content-center">
-            <div className=" col-10 col-md-3 col-sm-3 mt-3  income rounded shadow-sm p-3">
+          <div className="row  d-flex justify-content-center shadow-sm ">
+            <div className=" col-10 col-md-3 col-sm-3 mt-3 mb-3  income rounded shadow p-3">
               <div className="">
                 <h5 className="card-title text-center size-em">
                   <span className="i-e-b fw-bold">Income</span>
                 </h5>
                 <hr />
-                <h5 className="text-center fw-bold i-e-b"></h5>
+                <h5 className="text-center fw-bold i-e-b">${income}</h5>
               </div>
             </div>
-            <div className="col-10 col-md-3 col-sm-3  mt-3  expense rounded shadow-sm p-3">
+            <div className="col-10 col-md-3 col-sm-3  mt-3 mb-3 expense rounded shadow p-3">
               <div className="">
                 <h5 className="card-title text-center size-em">
                   <span className="expense1 fw-bold">Expense</span>
                 </h5>
                 <hr />
-                <h5 className="text-center fw-bold expense1">$0</h5>
+                <h5 className="text-center fw-bold expense1">${expenses}</h5>
               </div>
             </div>
-            <div className="col-10 col-md-3 col-sm-3  mt-3 balance rounded shadow-sm p-3">
+            <div className="col-10 col-md-3 col-sm-3  mt-3 mb-3 balance rounded shadow p-3">
               <div className="">
                 <h5 className="card-title text-center size-em">
                   <span className="i-e-b fw-bold">Balance</span>
                 </h5>
                 <hr />
-                <h5 className="text-center fw-bold i-e-b">$0</h5>
+                <h5 className="text-center fw-bold i-e-b">${balance}</h5>
               </div>
             </div>
           </div>
@@ -151,7 +185,6 @@ function Dashboard() {
             </div>
           </div>
           <div className="bg-warning">
-            <hr className="border-5"/>
           </div>
           <div className="container list-container overflow-auto mt-3">
             <div className="row text-center mt-5">
@@ -184,12 +217,15 @@ function Dashboard() {
                 type={transaction.type} 
                 category={transaction.category} 
                 amount={transaction.amount} 
-                note={transaction.note}/>
+                note={transaction.note}
+                deleteTransaction={deleteTransaction}
+                />
+                
               )
             }
           </div>
-          <TransactionForm addTransaction={addTransaction}/>
-
+          <TransactionForm transaction={transactions} addTransaction={addTransaction}/>
+          
         </div>
       </div>
     </>

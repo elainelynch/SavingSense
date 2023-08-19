@@ -20,9 +20,62 @@ function TransactionForm(props) {
     setTransaction('')
   } 
 
-  function handleTextChange(e){
-    setTask(e.target.value)
-  }
+  // function handleTextChange(e){
+  //   setTask(e.target.value)
+  // }
+
+  
+
+
+  const typeIncome = [
+    { 
+      value: "1",
+     label: "Income" 
+    },
+  ]
+
+  const typeExpense = [
+    { 
+    value: "2", 
+    label: "Expense" },
+  ];
+
+
+
+
+  const categoryIncome = [
+    // ... list of category options ...
+    { value: "1", label: "Salary" },
+    { value: "2", label: "Business" },
+    { value: "3", label: "Allowance" },
+    { value: "4", label: "Pension" },
+    { value: "5", label: "Savings" },
+    { value: "6", label: "Food and Drink" },
+  ]
+
+  const categoryExpense = [
+    { value: "7", label: "Electric Bill" },
+    { value: "8", label: " Water Bill" },
+    { value: "9", label: "Transportation" },
+    { value: "10", label: "Beauty" },
+    { value: "11", label: "Health" },
+    { value: "12", label: "Entertainment" },
+    { value: "13", label: "Debt Payments" },
+    { value: "14", label: "Personal Care" },
+    { value: "15", label: "Gifts and Donations" },
+    { value: "16", label: "Insurance" },
+    { value: "17", label: "Miscellaneous" },
+    { value: "18", label: "Utilities" },
+    { value: "19", label: "Pets" },
+    { value: "20", label: "Subscriptions" },
+    { value: "21", label: "Home" },
+    { value: "22", label: "Improvement" },
+    { value: "23", label: "Vacation and Travel" },
+    { value: "24", label: "Clothing" },
+    { value: "25", label: "Electronics and Gadgets" },
+    { value: "26", label: "Study" },
+
+  ];
   
    const formik = useFormik({
     initialValues: {
@@ -113,6 +166,7 @@ function TransactionForm(props) {
                             <span className="l1">Type of Transaction</span>
                           </span>
                         </label>
+
                         <select
                           className="form-select"
                           id="type"
@@ -120,15 +174,22 @@ function TransactionForm(props) {
                           onChange={formik.handleChange}
                         >
                           <option defaultValue>Type...</option>
-                          <option defaultValue="1" className="color-income">
-                          Income
+
+                          {typeIncome.map((option) => (
+                          <option defaultValue="1" className="color-income"
+                          key={option.value} 
+                          value={option.value}>
+                          {option.label}
                           </option>
-                          <option
-                            defaultValue="2"
-                            className="color-expense-T"
-                          >
-                            Expense
+                          ))}
+
+                          {typeExpense.map((option) => (
+                          <option defaultValue="1" className="color-expense"
+                          key={option.value} 
+                          value={option.value}>
+                          {option.label}
                           </option>
+                          ))}
                         </select>
                       </div>
                       {formik.errors.type && (
@@ -141,158 +202,37 @@ function TransactionForm(props) {
                       <div className="input-group mt-2">
                         <label
                           className="input-group-text"
-                          htmlFor="category"
-                        >
+                          htmlFor="category">
                           <span className="incometext">
                             <BiCategoryAlt size={20} />{" "}
                             <span className="l1">Category</span>
-                          </span>
+                          </span>                         
                         </label>
+
                         <select
                           className="form-select"
                           id="category"
                           value={formik.values.category}
                           onChange={formik.handleChange}
                         >
+
                           <option defaultValue>Choose...</option>
-                          <option defaultValue="1" className="color-income">
-                            Salary
+
+                          {categoryIncome.map((option) => (
+                          <option defaultValue="1" className="color-income"
+                          key={option.value} value={option.value}>
+                            {option.label}
                           </option>
-                          <option defaultValue="2" className="color-income">
-                            Business
+                          ))}
+
+                          {categoryExpense.map((option) => (
+                          <option defaultValue="2" className="color-expense"
+                          key={option.value} value={option.value}>
+                            {option.label}
                           </option>
-                          <option defaultValue="3" className="color-income">
-                            Allowance
-                          </option>
-                          <option defaultValue="4" className="color-income">
-                            Pension
-                          </option>
-                          <option defaultValue="5" className="color-income">
-                            Savings
-                          </option>
-                          <option defaultValue="6" className="color-expense">
-                            Food and Drink
-                          </option>
-                          <option
-                            defaultValue="7"
-                            className="color-expense"
-                          >
-                            Water Bill
-                          </option>
-                          <option
-                            defaultValue="8"
-                            className="color-expense"
-                          >
-                            Electric Bill
-                          </option>
-                          <option
-                            defaultValue="9"
-                            className="color-expense"
-                          >
-                            Rent
-                          </option>
-                          <option
-                            defaultValue="10"
-                            className="color-expense"
-                          >
-                            Transportation
-                          </option>
-                          <option
-                            defaultValue="11"
-                            className="color-expense"
-                          >
-                            Study
-                          </option>
-                          <option
-                            defaultValue="12"
-                            className="color-expense"
-                          >
-                            Beauty
-                          </option>
-                          <option
-                            defaultValue="13"
-                            className="color-expense"
-                          >
-                            Health
-                          </option>
-                          <option
-                            defaultValue="14"
-                            className="color-expense"
-                          >
-                            Entertainment
-                          </option>
-                          <option
-                            defaultValue="15"
-                            className="color-expense"
-                          >
-                            Debt Payments
-                          </option>
-                          <option
-                            defaultValue="16"
-                            className="color-expense"
-                          >
-                            Personal Care
-                          </option>
-                          <option
-                            defaultValue="17"
-                            className="color-expense"
-                          >
-                            Gifts and Donations
-                          </option>
-                          <option
-                            defaultValue="18"
-                            className="color-expense"
-                          >
-                            Insurance
-                          </option>
-                          <option
-                            defaultValue="19"
-                            className="color-expense"
-                          >
-                            Miscellaneous
-                          </option>
-                          <option
-                            defaultValue="20"
-                            className="color-expense"
-                          >
-                            Utilities
-                          </option>
-                          <option
-                            defaultValue="21"
-                            className="color-expense"
-                          >
-                            Pets
-                          </option>
-                          <option
-                            defaultValue="22"
-                            className="color-expense"
-                          >
-                            Subscriptions
-                          </option>
-                          <option
-                            defaultValue="23"
-                            className="color-expense"
-                          >
-                            Home Improvement
-                          </option>
-                          <option
-                            defaultValue="24"
-                            className="color-expense"
-                          >
-                            Vacation and Travel
-                          </option>
-                          <option
-                            defaultValue="25"
-                            className="color-expense"
-                          >
-                            Clothing
-                          </option>
-                          <option
-                            defaultValue="26"
-                            className="color-expense"
-                          >
-                            Electronics and Gadgets
-                          </option>
+                          ))}
+
+
                         </select>
                       </div>
                       {formik.errors.category && (
@@ -355,7 +295,7 @@ function TransactionForm(props) {
                           id="save"
                           onClick={handleClick}
                         >
-                          <span className="list-text fw-bold fs-5 p-1">
+                          <span className="list-text fw-bold fs-5 p-1" >
                             Save
                           </span>
                         </button>
