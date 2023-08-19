@@ -2,40 +2,27 @@ import { useEffect, useState } from "react";
 import "../style/dashboard.scss";
 import Navbar from "./Navbar.jsx";
 import { Link } from "react-router-dom";
-import savingsense1 from "/savingsense1.png";
-import savingsense from "/savingsense.png";
 import gacempow from "/gacempow.jpg";
 import { BsCalendarDate } from "react-icons/bs";
 import { BiNotepad } from "react-icons/bi";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { AiTwotoneHome } from "react-icons/ai";
 import { BiLogOut } from "react-icons/bi";
-import { useFormik } from "formik";
 import { Value } from "sass";
-import * as Yup from "yup";
-import TransactionForm from "./TransactionForm";
-import TodoList from "./TodoList";
 import { FcList } from "react-icons/fc";
 import axios from "axios";
+import TodoList from "./TodoList";
+import TransactionForm from "./TransactionForm";
 
-function Dashboard(props) {
-  const [transactionList, setTransactionList] = useState([
-    {
-      id: 1,
-      date: "17/08/2023",
-      type: "Income",
-      category: "business",
-      amount: "2000",
-      note: "hello World",
-    },
-  ]);
+
+
+function Dashboard() {
+  const [transactions, setTransactions] = useState([]);
 
 
   const fetchTransactionList = async () => {
     const res = await axios ('http://localhost:8000/api/v1/transactions')
-    // setTransactionList(res.data.transactionList)
-    // const res = await axios ('http://localhost:8000/api/v1/users')
-    console.log(res.data)
+    setTransactions(res.data.data)
 
     
   }
@@ -44,20 +31,10 @@ function Dashboard(props) {
     fetchTransactionList();
   }, []);
 
-  const todoList = transactionList.map((transaction) => (
-    <TodoList
-      key={transaction.id}
-      date={transaction.date}
-      type={transaction.type}
-      category={transaction.category}
-      amount={transaction.amount}
-      note={transaction.note}
-    />
-  ));
 
-  function addTask(date, type, category, amount, note) {
+  function addTransaction(transactions) {
     const taskObj = {
-      id: transactionList.length + 1,
+      id: transactions.length + 1,
       date,
       type,
       category,
@@ -65,7 +42,7 @@ function Dashboard(props) {
       note,
     };
 
-    setTransactionList([...transactionList, taskObj]);
+    setTransactions([...transactions, taskObj]);
   }
 
   useEffect(() => {
@@ -107,7 +84,7 @@ function Dashboard(props) {
                 </span>
               </p>
             </Link>
-            <Link className="text-dec mt-2" to="/">
+            <Link className="text-dec mt-2" to="/logout">
               <p className="side-bar">
                 <span className="income-text">
                   <BiLogOut size={20} /> Logout
@@ -191,10 +168,21 @@ function Dashboard(props) {
               <div className="">
                 <p className="fw-bold mt-4">Note</p>
               </div>
-              {todoList}
             </div>
+            {
+              transactions.map(
+                transaction =>  <TodoList
+                key={transaction.id} 
+                date={transaction.date} 
+                type={transaction.type} 
+                category={transaction.category} 
+                amount={transaction.amount} 
+                note={transaction.note}/>
+              )
+            }
           </div>
-          <TransactionForm addTask={addTask} />
+          <TransactionForm addTransaction={addTransaction}/>
+
         </div>
       </div>
     </>

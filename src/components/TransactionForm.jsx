@@ -17,7 +17,6 @@ function TransactionForm(props) {
   const [transaction, setTransaction] = useState('')
 
   function handleClick() {
-    props.addTask(transaction)
     setTransaction('')
   } 
 
