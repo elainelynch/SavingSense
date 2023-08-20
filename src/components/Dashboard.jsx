@@ -14,23 +14,19 @@ import axios from "axios";
 import TodoList from "./TodoList";
 import TransactionForm from "./TransactionForm";
 
-
-
 function Dashboard() {
   const [transactions, setTransactions] = useState([
-    { 
-      id: 1, 
-      type: "Income", 
-      amount: 100 
-    },
-    { id: 2, 
+    {
+      id: 1,
       type: "Income",
-      amount: 50 
+      amount: 100,
     },
-    { 
-      id: 3, 
-      type: "Income", 
-      amount: 200 },
+    { id: 2, type: "Income", amount: 50 },
+    {
+      id: 3,
+      type: "Income",
+      amount: 200,
+    },
   ]);
 
   const addTransaction = (newTransaction) => {
@@ -40,7 +36,7 @@ function Dashboard() {
   const deleteTransaction = (transactionId) => {
     const updatedTransactions = transactions.filter(
       (transaction) => transaction.id !== transactionId
-    )
+    );
     setTransactions(updatedTransactions);
   };
 
@@ -53,30 +49,29 @@ function Dashboard() {
     }
   };
 
-    // Calculate income, expenses, and balance based on transactions
-    const calculateValues = () => {
-      let income = 0;
-      let expenses = 0;
-  
-      transactions.forEach((transaction) => {
-        if (transaction.type === "Income") {
-          income += parseFloat(transaction.amount);
-        } else if (transaction.type === "Expense") {
-          expenses += parseFloat(transaction.amount);
-        }
-      });
-  
-      const balance = income - expenses;
+  // Calculate income, expenses, and balance based on transactions
+  const calculateValues = () => {
+    let income = 0;
+    let expenses = 0;
 
-      console.log("Income:", income);
-      console.log("Expenses:", expenses);
-      console.log("Balance:", balance);
+    transactions.forEach((transaction) => {
+      if (transaction.type === "Income") {
+        income += parseFloat(transaction.amount);
+      } else if (transaction.type === "Expense") {
+        expenses += parseFloat(transaction.amount);
+      }
+    });
 
-  
-      return { income, expenses, balance };
-    };
-  
-    const { income, expenses, balance } = calculateValues();
+    const balance = income - expenses;
+
+    console.log("Income:", income);
+    console.log("Expenses:", expenses);
+    console.log("Balance:", balance);
+
+    return { income, expenses, balance };
+  };
+
+  const { income, expenses, balance } = calculateValues();
 
   useEffect(() => {
     fetchTransactionList();
@@ -141,7 +136,9 @@ function Dashboard() {
                 className="text-center rounded-circle profile-picture1"
               />
             </div>
-            <p className="text-center Profile-name1 "><span className="mt-3">Profile-name</span></p>
+            <p className="text-center Profile-name1 ">
+              <span className="mt-3">Profile-name</span>
+            </p>
           </div>
           <h2 className="text-center p-2 shadow-sm p-3 fw-bold dashboard-fweight">
             <span className="">Dashboard</span>
@@ -184,48 +181,45 @@ function Dashboard() {
               </h5>
             </div>
           </div>
-          <div className="bg-warning">
-          </div>
           <div className="container list-container overflow-auto mt-3">
             <div className="row text-center mt-5">
-              <div className="col-3">
-                <p className="fw-bold transaction-category">Date</p>
+              <div className="col-2">
+                <p className="fw-bold fs-4 listcategory">Date</p>
               </div>
-              <div className="col-3">
-                <p className="fw-bold transaction-category">Type</p>
+              <div className="col-2">
+                <p className="fw-bold fs-4 listcategory">Type</p>
               </div>
-              <div className="col-3">
-                <p className="fw-bold transaction-category">Category</p>
+              <div className="col-2">
+                <p className="fw-bold fs-4 listcategory">Category</p>
               </div>
-              <div className="col-3">
-                <p className="fw-bold transaction-category">Amount</p>
+              <div className="col-2">
+                <p className="fw-bold fs-4 listcategory">Amount</p>
               </div>
-              <div className="mt-4">
-                <p className="fw-bold mt-4 transaction-category">Note</p>
+              <div className="col-2">
+                <p className="fw-bold fs-4 listcategory">Note</p>
               </div>
-            </div>
-        
-            <div className="bg-hr">
-              <hr className="border-3"/>
             </div>
 
-            {
-              transactions.map(
-                transaction =>  <TodoList
-                key={transaction.id} 
-                date={transaction.date} 
-                type={transaction.type} 
-                category={transaction.category} 
-                amount={transaction.amount} 
+            <div className="bg-hr">
+              <hr className="border-3" />
+            </div>
+
+            {transactions.map((transaction) => (
+              <TodoList
+                key={transaction.id}
+                date={transaction.date}
+                type={transaction.type}
+                category={transaction.category}
+                amount={transaction.amount}
                 note={transaction.note}
                 deleteTransaction={deleteTransaction}
-                />
-                
-              )
-            }
+              />
+            ))}
           </div>
-          <TransactionForm transaction={transactions} addTransaction={addTransaction}/>
-          
+          <TransactionForm
+            transaction={transactions}
+            addTransaction={addTransaction}
+          />
         </div>
       </div>
     </>

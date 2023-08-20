@@ -5,12 +5,12 @@
   box-sizing: border-box;
 }
 
-*{
+* {
   margin: 0;
 }
 /* fonts */
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&family=Montserrat&display=swap");
 html {
   font-size: 100%;
 } /*16px*/
@@ -27,7 +27,7 @@ html {
   --primary-700: #003c58;
   --primary-800: #00344c;
   --primary-900: #002d41;
-  --accent: #FDC85C;      /*original color*/
+  --accent: #fdc85c; /*original color*/
 
   /* grey */
   --grey-50: #f8fafc;
@@ -47,12 +47,12 @@ html {
   --red-light: #f8d7da;
   --red-dark: #842029;
   --green-light: #d1e7dd;
-  --Pharmaceutical-green: #0B7D46 ;  /*original color*/
-  --koji-orange: #F5B445;  /*original color*/
+  --Pharmaceutical-green: #0b7d46; /*original color*/
+  --koji-orange: #f5b445; /*original color*/
 
   /* fonts  */
-  --headingFont: 'Roboto', sans-serif;
-  --bodyFont: 'Nunito', sans-serif;
+  --headingFont: "Roboto", sans-serif;
+  --bodyFont: "Nunito", sans-serif;
   --smallText: 0.7em;
   /* rest of the vars */
   --backgroundColor: var(--grey-50);
@@ -71,13 +71,12 @@ html {
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
-
 }
 
 body {
   background: var(--backgroundColor);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 400;
   line-height: 1;
   color: var(--textColor);
@@ -263,407 +262,388 @@ ul {
   margin-top: 1rem;
 }
 
-
 // start Dashboard
 
-.text-center{
-  font-family: 'lora';
+.text-center {
+  font-family: "lora";
 }
 
-.bg-savingsense{
-  background-color: #F5B445;
+.bg-savingsense {
+  background-color: #f5b445;
 }
 
 .bg-color {
   background-color: var(--koji-orange);
 }
 
-
-
-.sign-in-dashboard{
+.sign-in-dashboard {
   font-size: 30px;
-
 }
 
-.dashboard-fweight{
+.dashboard-fweight {
   font-weight: 900;
 }
 
-.btn-search-color{
+.btn-search-color {
   background: var(--primary-600);
 }
 
-.wrapper{
+.wrapper {
   display: flex;
   flex-wrap: row wrap;
   text-align: center;
 }
 
-.side-bar1{
+.side-bar1 {
   margin-left: -30px;
 }
 
-.main-container{
+.main-container {
   width: 100%;
   margin-top: 105px;
 }
 
-.child1{
+.child1 {
   width: 25%;
   height: 200vh;
   background-color: var(--primary-600);
   float: left;
-
 }
 
-
-
- .child2{
+.child2 {
   width: 75%;
   height: 200vh;
   background-color: var(--grey-100);
   float: right;
- }
+}
 
- .text-dec{
+.text-dec {
   text-decoration: none;
- }
+}
 
- .profile-pict{
+.profile-pict {
   margin-top: 15px;
   display: flex;
   justify-content: center;
+}
 
- }
-
-
- .Profile-name{
+.Profile-name {
   color: var(--white);
-  font-size: .6em;
- }
+  font-size: 0.6em;
+}
 
- .income{
+.income {
   border: solid 3px var(--Pharmaceutical-green);
- }
+}
 
-
- .expense{
+.expense {
   border: solid 3px #ff0000;
   margin-left: 2%;
+}
 
- }
-
-.expense1{
+.expense1 {
   color: red;
- }
+}
 
- .balance{
+.balance {
   border: solid 3px var(--Pharmaceutical-green);
   margin-left: 2%;
+}
 
- }
-
- .i-e-b{
+.i-e-b {
   color: var(--Pharmaceutical-green);
- }
+}
 
-
-
- .new-trans{
+.new-trans {
   display: flex;
   justify-content: center;
-  
- }
+}
 
- .card-title-1{
+.card-title-1 {
   font-size: 1rem;
- }
+}
 
- .main-transaction{
+.main-transaction {
   display: flex;
   justify-content: center;
   margin-top: 25%;
- }
+}
 
- .sign-out-color{
+.sign-out-color {
   color: var(--primary-600);
- }
+}
 
- .sign-out-color:hover{
+.sign-out-color:hover {
   color: var(--primary-300);
- }
+}
 
- .income-text{
+.income-text {
   color: var(--white);
   margin-left: 20px;
-  
- }
+}
 
- .income-text:hover{
-  color: var(--primary-200)
- }
+.income-text:hover {
+  color: var(--primary-200);
+}
 
- .list-center{
+.list-center {
   display: flex;
   justify-content: center;
- }
+}
 
- .transaction-center{
+.transaction-center {
   display: flex;
   justify-content: center;
- }
+}
 
- .card-list{
+.card-list {
   background-color: var(--primary-600);
- }
+}
 
- .card-list:hover{
+.card-list:hover {
   background-color: var(--primary-400);
- }
+}
 
-
- .card-list-s{
+.card-list-s {
   background-color: var(--primary-600);
- }
+}
 
-
- .list-text{
+.list-text {
   color: var(--accent);
   font-size: 14px;
- }
+}
 
- .card-new-trans{
+.card-new-trans {
   display: flex;
   justify-content: center;
   background-color: var(--primary-600);
- }
+}
 
- .card-new-trans:hover{
+.card-new-trans:hover {
   background-color: var(--primary-400);
- }
+}
 
- .card-new-trans1{
+.card-new-trans1 {
   background-color: var(--grey-200);
   display: flex;
   justify-content: start;
- }
+}
 
- .card-new-trans-main{
+.card-new-trans-main {
   display: flex;
   justify-content: center;
- }
+}
 
- .save{
+.save {
   display: flex;
   justify-content: center;
- }
+}
 
- .save1{
+.save1 {
   background-color: var(--primary-600);
- }
+}
 
- .save1:hover{
+.save1:hover {
   background-color: var(--primary-400);
- }
+}
 
- .transaction-form{
+.transaction-form {
   display: flex;
   justify-content: center;
- }
+}
 
- .bg-form{
+.bg-form {
   background-color: var(--primary-300);
- }
+}
 
- .bg-center{
+.bg-center {
   display: flex;
   justify-content: center;
- }
+}
 
-
- .color-income{
+.color-income {
   font-weight: 600;
-  color:var(--Pharmaceutical-green)
- }
+  color: var(--Pharmaceutical-green);
+}
 
- .color-expense{
+.color-expense {
   color: #ff0000;
- }
+}
 
- .color-expense-T{
+.color-expense-T {
   font-weight: 500;
   color: #ff0000;
- }
+}
 
- .note-text-color{
+.note-text-color {
   color: var(--accent);
   font-weight: 500;
- }
+}
 
- .list-container{
+.list-container {
   height: 60vh;
- }
+}
 
- .error-text{
+.error-text {
   color: red;
- }
+}
 
+//todolist
 
- 
+.note-catergory-0 {
+  width: 9vw;
+}
+.note-catergory-1 {
+  width: 5vw;
+}
 
- 
+.note-catergory-2 {
+  width: 9vw;
+}
 
+.note-catergory-3 {
+  width: 5vw;
+}
+
+.note-catergory-4 {
+  width: 16vw;
+}
+
+.note-catergory-5 {
+  width: 2vw;
+}
+
+.listcategory {
+  padding-left: 160px;
+  padding-left: 160px;
+}
 
 @media only screen and (max-width: 450px) {
-
-  .main-container{
+  .main-container {
     margin-left: 2px;
   }
 
-
-  .ul-margin{
+  .ul-margin {
     margin-left: -10px;
   }
 
-  .side-bar{
+  .side-bar {
     margin-top: 10px;
     margin-left: -27px;
     font-size: 1em;
-    color: var(--white)
+    color: var(--white);
   }
 
-  .card-title-2{
+  .card-title-2 {
     width: 2rem;
   }
 
-  .list{
-    font-size: .6em;
-   }
-  
-   .size-em{
-    font-size: 1em;
-   }
+  .list {
+    font-size: 0.6em;
+  }
 
-   .profile-pict1{
+  .size-em {
+    font-size: 1em;
+  }
+
+  .profile-pict1 {
     display: flex;
     justify-content: center;
-   }
+  }
 
-   .bg-profile-name-image{
+  .bg-profile-name-image {
     background-color: var(--grey-200);
-   }
+  }
 
-   .profile-picture1{
+  .profile-picture1 {
     border: 4px solid var(--primary-500);
     border-radius: 50%;
-   }
+  }
 
-   .income1{
+  .income1 {
     width: 10%;
-   }
+  }
 
-   .child1{
+  .child1 {
     display: none;
-   }
+  }
 
-  .child2{
+  .child2 {
     width: 100%;
     height: 200vh;
   }
 
-
-  .profile-pict{
+  .profile-pict {
     display: contents;
   }
 
-  .sign-out-color{
+  .sign-out-color {
     visibility: hidden;
   }
-  
-
-
 }
 
 @media only screen and (min-width: 450px) {
-
-  .profile-pict1{
+  .profile-pict1 {
     display: none;
-   }
+  }
 
-   .Profile-name1{
+  .Profile-name1 {
     display: none;
-   }
+  }
 
-   .sign-out-color{
+  .sign-out-color {
     visibility: hidden;
   }
 
-  .transaction-category{
-    font-size: 1.4em;
+  .transaction-category {
+    font-size: 2em;
   }
 
-  .bg-hr{
+  .bg-hr {
     background-color: var(--accent);
   }
-
-
 }
 
-
-
-
-
-
-
 @media only screen and (min-width: 780px) {
-
-  .main-container{
+  .main-container {
     margin-top: 65px;
   }
 
-
-  .child1{
+  .child1 {
     width: 17%;
     height: 50vh;
     background-color: var(--primary-600);
     float: left;
-  
   }
-  
-  
-  
-  
-   .child2{
+
+  .child2 {
     width: 83%;
     height: 200vh;
     float: right;
-   }
+  }
 
-   .profile-pict1{
+  .profile-pict1 {
     display: none;
-   }
+  }
 
-   .Profile-name1{
+  .Profile-name1 {
     display: none;
-   }
+  }
 
-   .profile-picture{
+  .profile-picture {
     border: 4px solid var(--accent);
     border-radius: 50%;
-   }
+  }
 
-   .Profile-name{
+  .Profile-name {
     font-size: 1em;
-   }
+  }
 
-
-  .sign-out-color{
+  .sign-out-color {
     visibility: hidden;
   }
 
-  .transaction-margin{
+  .transaction-margin {
     margin-left: 60px;
   }
-
-
 }
