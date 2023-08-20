@@ -12,16 +12,6 @@ import { useState } from "react";
 import axios from "axios";
 
 function TransactionForm(props) {
-  const [transaction, setTransaction] = useState("");
-
-  function handleClick() {
-    setTransaction("");
-  }
-
-  // function handleTextChange(e){
-  //   setTask(e.target.value)
-  // }
-
   const typeIncome = [
     {
       value: "1",
@@ -86,26 +76,35 @@ function TransactionForm(props) {
       note: Yup.string().required("Note is required"),
     }),
 
-    onSubmit: async (value) => {
-      console.log("form data", value);
-      const res = await axios.post(
-        "http://localhost:8000/api/v1/transactions",
-        {
-          date: value.date,
-          type: value.type,
-          category: value.category,
-          amount: value.amount,
-          note: value.note,
-          userId: 1,
-        },
-        {
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
+    onSubmit: async (value, onSubmitProps) => {
+      // console.log("form data", value);
+      onSubmitProps.setSubmitting(false);
+      onSubmitProps.resetForm();
+      try {
+        const res = await axios.post(
+          "http://localhost:8000/api/v1/transactions",
+          {
+            date: value.date,
+            type: value.type,
+            category: value.category,
+            amount: value.amount,
+            note: value.note,
+            userId: 1,
           },
+          {
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+          }
+        );
+        // console.log(res);
+        if (res.status === 201) {
+          new Toast(document.getElementById("liveToast")).show();
         }
-      );
-      console.log(res);
-      new Toast(document.getElementById("save")).show();
+      } catch (err) {
+        // console.log("Something went wrong");
+        new Toast(document.getElementById("liveToast_1")).show();
+      }
     },
   });
 
@@ -286,7 +285,7 @@ function TransactionForm(props) {
                           className="form-control"
                           rows="3"
                           id="note"
-                          value={formik.values.note.task}
+                          value={formik.values.note}
                           onChange={formik.handleChange}
                         ></textarea>
                       </div>
@@ -301,29 +300,53 @@ function TransactionForm(props) {
                           type="submit"
                           className="col-3 save1 new-trans text-center rounded mt-4"
                           id="save"
-                          onClick={handleClick}
                         >
                           <span className="list-text fw-bold fs-5 p-1">
-                            Save
+                            Submit
                           </span>
                         </button>
                       </div>
                     </fieldset>
                   </form>
-                  <div
-                    aria-live="polite"
-                    aria-atomic="true"
-                    className="bg-dark position-relative bd-example-toasts"
-                  >
+
+                  <div className="toast-container position-fixed top-0 end-0 p-3">
                     <div
-                      id="save"
-                      className="toast-container position-absolute p-3"
+                      id="liveToast"
+                      className="toast align-items-center text-bg-success border-0"
+                      role="alert"
+                      aria-live="assertive"
+                      aria-atomic="true"
                     >
-                      <div className="toast">
-                        <div className="toast-header">
-                          <small>11 mins ago</small>
+                      <div className="d-flex">
+                        <div className="toast-body">
+                          Successfully added New Transaction!
                         </div>
-                        <div className="toast-body">Succesfully saved</div>
+                        <button
+                          type="button"
+                          className="btn-close btn-close-white me-2 m-auto"
+                          data-bs-dismiss="toast"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="toast-container position-fixed top-0 end-0 p-3">
+                    <div
+                      id="liveToast_1"
+                      className="toast align-items-center text-bg-danger border-0"
+                      role="alert"
+                      aria-live="assertive"
+                      aria-atomic="true"
+                    >
+                      <div className="d-flex">
+                        <div className="toast-body">Something went wrong!</div>
+                        <button
+                          type="button"
+                          className="btn-close btn-close-white me-2 m-auto"
+                          data-bs-dismiss="toast"
+                          aria-label="Close"
+                        ></button>
                       </div>
                     </div>
                   </div>
