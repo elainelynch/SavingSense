@@ -1,3 +1,4 @@
+import React from "react";
 import "../style/dashboard.scss";
 import { GrTransaction } from "react-icons/gr";
 import { BsCalendarDate } from "react-icons/bs";
@@ -11,17 +12,17 @@ import { Toast } from "bootstrap";
 import { useState } from "react";
 import axios from "axios";
 
-function TransactionForm(props) {
+function TransactionForm(addTransaction) {
   const typeIncome = [
     {
-      value: "1",
+      value: "Income",
       label: "Income",
     },
   ];
 
   const typeExpense = [
     {
-      value: "2",
+      value: "Expense",
       label: "Expense",
     },
   ];
@@ -33,10 +34,10 @@ function TransactionForm(props) {
     { value: "3", label: "Allowance" },
     { value: "4", label: "Pension" },
     { value: "5", label: "Savings" },
-    { value: "6", label: "Food and Drink" },
   ];
 
   const categoryExpense = [
+    { value: "6", label: "Food and Drink" },
     { value: "7", label: "Electric Bill" },
     { value: "8", label: " Water Bill" },
     { value: "9", label: "Transportation" },
@@ -107,6 +108,7 @@ function TransactionForm(props) {
       }
     },
   });
+
 
   return (
     <>

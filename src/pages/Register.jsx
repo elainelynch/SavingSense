@@ -1,12 +1,9 @@
-import React, { useState } from "react";
 import "../style/register.scss";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import savingsense from "/savingsense.png";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min";
 import { Toaster, toast } from "react-hot-toast";
 
 function Register() {
@@ -31,6 +28,7 @@ function Register() {
 
     onSubmit: (value) => {
       console.log(value);
+      showAlert();
     },
   });
 
@@ -42,10 +40,7 @@ function Register() {
     document.title = "Register";
   }, []);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Process form data here
-  };
+
 
   return (
     <>

@@ -5,33 +5,19 @@ import { Link } from "react-router-dom";
 import gacempow from "/gacempow.jpg";
 import { BsCalendarDate } from "react-icons/bs";
 import { BiNotepad } from "react-icons/bi";
-import { IoIosAddCircleOutline } from "react-icons/io";
-import { AiTwotoneHome } from "react-icons/ai";
 import { BiLogOut } from "react-icons/bi";
-import { Value } from "sass";
 import { FcList } from "react-icons/fc";
 import axios from "axios";
 import TodoList from "./TodoList";
 import TransactionForm from "./TransactionForm";
+import IncomeExpense from "./IncomeExpense";
 
 function Dashboard() {
-  const [transactions, setTransactions] = useState([
-    {
-      id: 1,
-      type: "Income",
-      amount: 100,
-    },
-    { id: 2, type: "Income", amount: 50 },
-    {
-      id: 3,
-      type: "Income",
-      amount: 200,
-    },
-  ]);
+  const [transactions, setTransactions] = useState([]);
 
   const addTransaction = (newTransaction) => {
     setTransactions([...transactions, newTransaction]);
-  };
+  }; //this will trigger to recalculate of income, expense and balance.
 
   const deleteTransaction = (transactionId) => {
     const updatedTransactions = transactions.filter(
@@ -49,29 +35,6 @@ function Dashboard() {
     }
   };
 
-  // Calculate income, expenses, and balance based on transactions
-  const calculateValues = () => {
-    let income = 0;
-    let expenses = 0;
-
-    transactions.forEach((transaction) => {
-      if (transaction.type === "Income") {
-        income += parseFloat(transaction.amount);
-      } else if (transaction.type === "Expense") {
-        expenses += parseFloat(transaction.amount);
-      }
-    });
-
-    const balance = income - expenses;
-
-    console.log("Income:", income);
-    console.log("Expenses:", expenses);
-    console.log("Balance:", balance);
-
-    return { income, expenses, balance };
-  };
-
-  const { income, expenses, balance } = calculateValues();
 
   useEffect(() => {
     fetchTransactionList();
@@ -140,10 +103,12 @@ function Dashboard() {
               <span className="mt-3">Profile-name</span>
             </p>
           </div>
+
           <h2 className="text-center p-2 shadow-sm p-3 fw-bold dashboard-fweight">
             <span className="">Dashboard</span>
           </h2>
-          <div className="row  d-flex justify-content-center shadow-sm ">
+
+          {/* <div className="row  d-flex justify-content-center shadow-sm ">
             <div className=" col-10 col-md-3 col-sm-3 mt-3 mb-3  income rounded shadow p-3">
               <div className="">
                 <h5 className="card-title text-center size-em">
@@ -171,7 +136,10 @@ function Dashboard() {
                 <h5 className="text-center fw-bold i-e-b">${balance}</h5>
               </div>
             </div>
-          </div>
+          </div> */}
+
+          <IncomeExpense income={'500'}  expenses={'100'} balance={'400'}/>
+
 
           <div className="container list-center ms-2 row mt-5">
             <div className="card-list-s text-center col-4 col-md-2 rounded">
@@ -181,28 +149,8 @@ function Dashboard() {
               </h5>
             </div>
           </div>
-          <div className="container list-container overflow-auto mt-3">
-            <div className="row text-center mt-5">
-              <div className="col-2">
-                <p className="fw-bold fs-4 listcategory">Date</p>
-              </div>
-              <div className="col-2">
-                <p className="fw-bold fs-4 listcategory">Type</p>
-              </div>
-              <div className="col-2">
-                <p className="fw-bold fs-4 listcategory">Category</p>
-              </div>
-              <div className="col-2">
-                <p className="fw-bold fs-4 listcategory">Amount</p>
-              </div>
-              <div className="col-2">
-                <p className="fw-bold fs-4 listcategory">Note</p>
-              </div>
-            </div>
-
-            <div className="bg-hr">
-              <hr className="border-3" />
-            </div>
+          
+          <div className="container-fluid list-container overflow-auto mt-3">
 
             {transactions.map((transaction) => (
               <TodoList
@@ -222,6 +170,7 @@ function Dashboard() {
           />
         </div>
       </div>
+
     </>
   );
 }
