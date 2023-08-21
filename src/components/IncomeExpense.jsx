@@ -1,37 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 
 function IncomeExpense(props) {
-  const [trackers] = useState([]);
 
 
-
-
- // Calculate income, expenses, and balance based on transactions
- const calculateValues = () => {
-  let income = 0;
-  let expenses = 0;
-
-  trackers.forEach((tracker) => {
-    const amount = parseFloat(tracker.amount); // Convert amount to float
-    if (tracker.type === "Income") {
-      income += amount;
-    } else if (tracker.type === "Expense") {
-      expenses += amount;
-    }
-  });
-  
-
-
-  const balance = income - expenses;
-
-  console.log("Income:", income);
-  console.log("Expenses:", expenses);
-  console.log("Balance:", balance);
-
-  return { income, expenses, balance };
-};
-
-// const { income, expenses, balance } = calculateValues();
 
 
   useEffect(() => {

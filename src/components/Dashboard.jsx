@@ -20,6 +20,35 @@ function Dashboard() {
   }; //this will trigger to recalculate of income, expense and balance.
 
 
+   // Calculate income, expenses, and balance based on transactions
+  const calculateValues = () => {
+    let income = 0;
+    let expenses = 0;
+
+    transactions.forEach((transaction) => {
+    const amount = parseFloat(transaction.amount); // Convert amount to float
+    if (transaction.type === "Income") {
+      income += amount;
+    } else if (transaction.type === "Expense") {
+      expenses += amount;
+    }
+  });
+  
+
+
+  const balance = income - expenses;
+
+  console.log("Income:", income);
+  console.log("Expenses:", expenses);
+  console.log("Balance:", balance);
+
+  return { income, expenses, balance };
+};
+
+const { income, expenses, balance } = calculateValues();
+
+
+
   const fetchTransactions = async () => {
     try {
       const res = await axios.get("http://localhost:8000/api/v1/transactions");
@@ -133,7 +162,7 @@ function Dashboard() {
             </div>
           </div> */}
 
-          <IncomeExpense income={'500'}  expenses={'100'} balance={'400'}/>
+          <IncomeExpense income={income} expenses={expenses} balance={balance} />
 
 
           <div className="container list-center ms-2 row mt-5">

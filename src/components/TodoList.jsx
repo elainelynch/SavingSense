@@ -29,7 +29,7 @@ function TodoList({
   
     try {
       await axios.delete(`http://localhost:8000/api/v1/transactions/${id}`);
-      fetchTransactions(); // Fetch updated transactions after deletion
+      // fetchTransactions(); // Fetch updated transactions after deletion
     } catch (error) {
       console.error('Error deleting transaction:', error);
     }
@@ -43,7 +43,7 @@ function TodoList({
     
           
     <div className="container" style={{ width: "100%"}}>
-      <table className="table">
+      <table className="table table-hover">
 
 
         <tbody>
