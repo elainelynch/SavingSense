@@ -19,16 +19,10 @@ function Dashboard() {
     setTransactions([...transactions, newTransaction]);
   }; //this will trigger to recalculate of income, expense and balance.
 
-  const deleteTransaction = (transactionId) => {
-    const updatedTransactions = transactions.filter(
-      (transaction) => transaction.id !== transactionId
-    );
-    setTransactions(updatedTransactions);
-  };
 
-  const fetchTransactionList = async () => {
+  const fetchTransactions = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/v1/transactions"); // Corrected axios syntax
+      const res = await axios.get("http://localhost:8000/api/v1/transactions");
       setTransactions(res.data.data);
     } catch (error) {
       console.error("Error fetching transactions:", error);
@@ -36,8 +30,9 @@ function Dashboard() {
   };
 
 
+
   useEffect(() => {
-    fetchTransactionList();
+    fetchTransactions();
     document.title = "Dashboard";
   }, []);
 
@@ -155,12 +150,12 @@ function Dashboard() {
             {transactions.map((transaction) => (
               <TodoList
                 key={transaction.id}
+                id={transaction.id}
                 date={transaction.date}
                 type={transaction.type}
                 category={transaction.category}
                 amount={transaction.amount}
                 note={transaction.note}
-                deleteTransaction={deleteTransaction}
               />
             ))}
           </div>
