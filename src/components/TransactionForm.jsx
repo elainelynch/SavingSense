@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../style/dashboard.scss";
 import { GrTransaction } from "react-icons/gr";
 import { BsCalendarDate } from "react-icons/bs";
@@ -79,8 +79,12 @@ function TransactionForm(addTransaction) {
 
     onSubmit: async (value, onSubmitProps) => {
       // console.log("form data", value);
+
       onSubmitProps.setSubmitting(false);
       onSubmitProps.resetForm();
+
+      const token = "7|fswrst5m2Fskcxda3W3qvxVzBjuP5bb0mo0IpFKa";
+
       try {
         const res = await axios.post(
           "http://localhost:8000/api/v1/transactions",
@@ -95,20 +99,24 @@ function TransactionForm(addTransaction) {
           {
             headers: {
               "Content-Type": "application/x-www-form-urlencoded",
+              Authorization: `Bearer ${token}`,
             },
           }
         );
-        // console.log(res);
+        console.log(res);
         if (res.status === 201) {
           new Toast(document.getElementById("liveToast")).show();
         }
       } catch (err) {
-        // console.log("Something went wrong");
+        console.log("Something went wrong");
         new Toast(document.getElementById("liveToast_1")).show();
       }
     },
   });
 
+  useEffect(() => {
+    document.title = "TransactionForm";
+  }, []);
 
   return (
     <>
