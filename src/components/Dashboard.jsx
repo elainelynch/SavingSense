@@ -19,35 +19,30 @@ function Dashboard() {
     setTransactions([...transactions, newTransaction]);
   }; //this will trigger to recalculate of income, expense and balance.
 
-
-   // Calculate income, expenses, and balance based on transactions
+  // Calculate income, expenses, and balance based on transactions
   const calculateValues = () => {
     let income = 0;
     let expenses = 0;
 
     transactions.forEach((transaction) => {
-    const amount = parseFloat(transaction.amount); // Convert amount to float
-    if (transaction.type === "Income") {
-      income += amount;
-    } else if (transaction.type === "Expense") {
-      expenses += amount;
-    }
-  });
-  
+      const amount = parseFloat(transaction.amount); // Convert amount to float
+      if (transaction.type === "Income") {
+        income += amount;
+      } else if (transaction.type === "Expense") {
+        expenses += amount;
+      }
+    });
 
+    const balance = income - expenses;
 
-  const balance = income - expenses;
+    console.log("Income:", income);
+    console.log("Expenses:", expenses);
+    console.log("Balance:", balance);
 
-  console.log("Income:", income);
-  console.log("Expenses:", expenses);
-  console.log("Balance:", balance);
+    return { income, expenses, balance };
+  };
 
-  return { income, expenses, balance };
-};
-
-const { income, expenses, balance } = calculateValues();
-
-
+  const { income, expenses, balance } = calculateValues();
 
   const fetchTransactions = async () => {
     try {
@@ -57,8 +52,6 @@ const { income, expenses, balance } = calculateValues();
       console.error("Error fetching transactions:", error);
     }
   };
-
-
 
   useEffect(() => {
     fetchTransactions();
@@ -162,8 +155,11 @@ const { income, expenses, balance } = calculateValues();
             </div>
           </div> */}
 
-          <IncomeExpense income={income} expenses={expenses} balance={balance} />
-
+          <IncomeExpense
+            income={income}
+            expenses={expenses}
+            balance={balance}
+          />
 
           <div className="container list-center ms-2 row mt-5">
             <div className="card-list-s text-center col-4 col-md-2 rounded">
@@ -173,12 +169,10 @@ const { income, expenses, balance } = calculateValues();
               </h5>
             </div>
           </div>
-          
-          <div className="container-fluid list-container overflow-auto mt-3">
 
+          <div className="container-fluid list-container overflow-auto mt-3">
             {transactions.map((transaction) => (
               <TodoList
-                key={transaction.id}
                 id={transaction.id}
                 date={transaction.date}
                 type={transaction.type}
@@ -194,7 +188,6 @@ const { income, expenses, balance } = calculateValues();
           />
         </div>
       </div>
-
     </>
   );
 }

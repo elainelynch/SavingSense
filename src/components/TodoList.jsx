@@ -3,8 +3,10 @@ import { FiEdit } from "react-icons/fi";
 import { TiDelete } from "react-icons/ti";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { Toast } from "bootstrap";
 
-function TodoList({ id, date, type, category, amount, note }) {
+function TodoList(props) {
+  const { id, date, type, category, amount, note } = props;
   const [setTransactions] = useState([]);
 
   const fetchTransactions = async () => {
@@ -14,35 +16,35 @@ function TodoList({ id, date, type, category, amount, note }) {
     } catch (error) {}
   };
 
-  const handleEdit = async (value) => {
-    console.log("Editing transaction with ID:", id);
+  // const handleEdit = async (value) => {
+  //   console.log("Editing transaction with ID:", id);
 
-    try {
-      const res = await axios.patch(
-        `http://localhost:8000/api/v1/transactions/${id}`,
-        {
-          date: value.date,
-          type: value.type,
-          category: value.category,
-          amount: value.amount,
-          note: value.note,
-          userId: 1,
-        },
-        {
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-        }
-      );
-      // fetchTransactions(); // Fetch updated transactions after deletion
-      // setTransactions(res.data.data);
+  //   try {
+  //     const res = await axios.patch(
+  //       `http://localhost:8000/api/v1/transactions/${id}`,
+  //       {
+  //         date: value.date,
+  //         type: value.type,
+  //         category: value.category,
+  //         amount: value.amount,
+  //         note: value.note,
+  //         userId: 1,
+  //       },
+  //       {
+  //         headers: {
+  //           "Content-Type": "application/x-www-form-urlencoded",
+  //         },
+  //       }
+  //     );
+  //     // fetchTransactions(); // Fetch updated transactions after deletion
+  //     // setTransactions(res.data.data);
 
-      // setFormData(res.data);
-    } catch (error) {
-      // console.error("Error deleting transaction:", error);
-      console.error("Registration failed: ", error);
-    }
-  };
+  //     // setFormData(res.data);
+  //   } catch (error) {
+  //     // console.error("Error deleting transaction:", error);
+  //     console.error("Registration failed: ", error);
+  //   }
+  // };
 
   const handleDelete = async (id) => {
     console.log("Deleting transaction with ID:", id);
@@ -50,17 +52,9 @@ function TodoList({ id, date, type, category, amount, note }) {
     try {
       await axios.delete(`http://localhost:8000/api/v1/transactions/${id}`);
       fetchTransactions(); // Fetch updated transactions after deletion
-
-      if (res === "Deleting transaction with ID")
-        new Toast(document.getElementById("liveToast")).show();
-      // fetchTransactions(); // Fetch updated transactions after deletion
     } catch (error) {
-      // console.error('Error deleting transaction:', error);
+      console.error("Error deleting transaction:", error);
     }
-  };
-
-  const showAlert = () => {
-    toast.success("Successfully Registered!");
   };
 
   return (
@@ -68,17 +62,16 @@ function TodoList({ id, date, type, category, amount, note }) {
       <table className="table table-hover">
         <tbody>
           <tr>
-            <th scope="row">{date}</th>
-            <td scope="col">{type}</td>
-            <td scope="col">{category}</td>
-            <td scope="col">{amount}</td>
+            <th scope="row">
+              {props.id}
+              {props.date}
+            </th>
+            <td scope="col">{props.type}</td>
+            <td scope="col">{props.category}</td>
+            <td scope="col">{props.amount}</td>
             <td>
               <Link to="transactionform">
-                <button
-                  className="bg-warning"
-                  onClick={() => handleEdit(id)}
-                  onDoubleClick={showAlert}
-                >
+                <button className="bg-warning" onClick={() => handleEdit(id)}>
                   <FiEdit />
                 </button>
               </Link>
@@ -91,20 +84,17 @@ function TodoList({ id, date, type, category, amount, note }) {
           </tr>
         </tbody>
       </table>
-      <p>Note: {note}</p>
-
+      <p>Note: {props.note}</p>
       <div className="toast-container position-fixed top-0 end-0 p-3">
         <div
-          id="liveToast"
+          id="liveToast_3"
           className="toast align-items-center text-bg-success border-0"
           role="alert"
           aria-live="assertive"
           aria-atomic="true"
         >
           <div className="d-flex">
-            <div className="toast-body">
-              Successfully Deleted the Transaction!
-            </div>
+            <div className="toast-body">Transaction has been deleted!</div>
             <button
               type="button"
               className="btn-close btn-close-white me-2 m-auto"
