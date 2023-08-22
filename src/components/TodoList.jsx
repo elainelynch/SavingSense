@@ -49,14 +49,11 @@ function TodoList({ id, date, type, category, amount, note }) {
 
     try {
       await axios.delete(`http://localhost:8000/api/v1/transactions/${id}`);
-<<<<<<< HEAD
       fetchTransactions(); // Fetch updated transactions after deletion
 
       if (res === "Deleting transaction with ID")
         new Toast(document.getElementById("liveToast")).show();
-=======
       // fetchTransactions(); // Fetch updated transactions after deletion
->>>>>>> 865111590d6d5e6854b72df55d04cd459491d245
     } catch (error) {
       // console.error('Error deleting transaction:', error);
     }
@@ -67,18 +64,8 @@ function TodoList({ id, date, type, category, amount, note }) {
   };
 
   return (
-<<<<<<< HEAD
     <div className="container" style={{ width: "100%" }}>
-      <table className="table">
-=======
-
-    
-          
-    <div className="container" style={{ width: "100%"}}>
       <table className="table table-hover">
-
-
->>>>>>> 865111590d6d5e6854b72df55d04cd459491d245
         <tbody>
           <tr>
             <th scope="row">{date}</th>
