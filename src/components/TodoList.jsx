@@ -62,13 +62,10 @@ function TodoList(props) {
       <table className="table table-hover">
         <tbody>
           <tr>
-            <th scope="row">
-              {props.id}
-              {props.date}
-            </th>
-            <td scope="col">{props.type}</td>
-            <td scope="col">{props.category}</td>
-            <td scope="col">{props.amount}</td>
+            <th scope="row">{props.date}</th>
+            <td scope="col">{type}</td>
+            <td scope="col">{category}</td>
+            <td scope="col">{amount}</td>
             <td>
               <Link to="transactionform">
                 <button className="bg-warning" onClick={() => handleEdit(id)}>
@@ -84,7 +81,7 @@ function TodoList(props) {
           </tr>
         </tbody>
       </table>
-      <p>Note: {props.note}</p>
+      <p>Note: {note}</p>
       <div className="toast-container position-fixed top-0 end-0 p-3">
         <div
           id="liveToast_3"
