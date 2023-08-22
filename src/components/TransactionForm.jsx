@@ -12,7 +12,7 @@ import { Toast } from "bootstrap";
 import { useState } from "react";
 import axios from "axios";
 
-function TransactionForm(addTransaction) {
+function TransactionForm({addTransaction}) {
   const typeIncome = [
     {
       value: "Income",
@@ -105,6 +105,14 @@ function TransactionForm(addTransaction) {
         );
         console.log(res);
         if (res.status === 201) {
+          addTransaction({
+            date: value.date,
+            type: value.type,
+            category: value.category,
+            amount: parseFloat(value.amount), // Convert amount to float
+            note: value.note,
+            userId: 1,
+          }); 
           new Toast(document.getElementById("liveToast")).show();
         }
       } catch (err) {
@@ -147,15 +155,15 @@ function TransactionForm(addTransaction) {
                   <form
                     onSubmit={formik.handleSubmit}
                     className="w-100"
-                    width="100px"
-                  >
+                    width="100px" >
                     <fieldset>
-                      <div className="input-group mt-2" width="100px">
+                      <div className="input-group mt-2" width="100px" >
                         <span className="input-group-text" id="date">
                           <BsCalendarDate size={20} />
                           <span className="l1">Date</span>
                         </span>
                         <input
+                         placeholder="Y-M-D"
                           type="text"
                           className="form-control"
                           aria-label="Sizing example input"
@@ -269,6 +277,7 @@ function TransactionForm(addTransaction) {
                           </span>
                         </span>
                         <input
+                          placeholder="ex. 10000"
                           type="text"
                           className="form-control"
                           aria-label="Sizing example input"
